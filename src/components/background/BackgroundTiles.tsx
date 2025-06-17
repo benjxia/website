@@ -1,23 +1,33 @@
-import React, { JSX, useRef, useEffect, useState } from 'react';
+import React, { JSX, useRef, useEffect } from 'react';
+import { GridRenderer } from './background-render';
+import { time } from 'console';
 
-function BackgroundTiles() {
+
+function BackgroundTiles(): JSX.Element {
     var canvasRef = useRef<HTMLCanvasElement>(null);
+    var gridRef = useRef<GridRenderer>(null);
     const mousePosRef = useRef({ x: 0, y: 0 });
 
     useEffect(() => {
         const canvas = canvasRef.current;
+        const startTime = Date.now()
         if (!canvas) return;
 
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
+        const gl: WebGL2RenderingContext | null = canvas.getContext("webgl2");
+        if (!gl) return;
 
         // Set canvas size to full window
         const resize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            gl.viewport(0, 0, window.innerWidth, window.innerHeight);
+
+            gridRef.current?.resize(canvas.width, canvas.height);
         };
         resize();
         window.addEventListener("resize", resize);
+
+        gridRef.current = new GridRenderer(gl, canvas.width, canvas.height);
 
         // Mouse event listener to update background effects
         const handleMouseMove = (e: MouseEvent) => {
@@ -32,11 +42,7 @@ function BackgroundTiles() {
         // Draw loop example
         const draw = () => {
             var mousePos = mousePosRef.current;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = `red`;
-            ctx.fillRect(mousePos.x - 25, mousePos.y - 25, 50, 50);
-
+            gridRef.current?.render(mousePos.x, mousePos.y, (Date.now() - startTime) / 1000);
             requestAnimationFrame(draw);
         };
 
@@ -58,7 +64,7 @@ function BackgroundTiles() {
         left: 0,
         width: "100%",
         height: "100%",
-        zIndex: 1,
+        zIndex: -1,
       }}
     />
   );
