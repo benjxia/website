@@ -2,25 +2,21 @@ import React, { JSX } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 
 import BackgroundTiles from './components/background/BackgroundTiles';
-import logo from './logo.svg';
-import './App.css';
+import './Home.css';
+import TypingText from './components/text/TypingText';
 
 function Home(): JSX.Element {
   return (
     <div>
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          BENJXIA
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="Home-header">
+        <TypingText style={{
+            fontSize: 48,
+            fontWeight: 'bold',
+            color: 'white',
+            mixBlendMode: 'difference',
+            pointerEvents: 'none',
+            userSelect: 'none',
+        }} text='benjxia' speed={100}/>
       </header>
     </div>
   );

@@ -39,14 +39,20 @@ function BackgroundTiles(): JSX.Element {
         };
         window.addEventListener("mousemove", handleMouseMove)
 
-        // Draw loop example
-        const draw = () => {
-            var mousePos = mousePosRef.current;
-            gridRef.current?.render(mousePos.x, mousePos.y, (Date.now() - startTime) / 1000);
+        // Animation loop
+        const targetFPS = 15;
+        const frameDuration = 1000 / targetFPS; // ~66.67 ms
+        let lastFrameTime = 0;
+        const draw = (time = 0) => {
+            if (time - lastFrameTime >= frameDuration) {
+                lastFrameTime = time;
+
+                var mousePos = mousePosRef.current;
+                gridRef.current?.render(mousePos.x, mousePos.y, (Date.now() - startTime) / 1000);
+            }
             requestAnimationFrame(draw);
         };
-
-        draw();
+        requestAnimationFrame(draw);
 
         return () => {
             // Remove event listeners upon unmount

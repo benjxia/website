@@ -1,0 +1,30 @@
+.typewriter {
+  font-family: monospace;
+  white-space: nowrap;
+  display: inline-block;
+  overflow: visible;
+  font-size: 1.5rem;
+  position: relative;
+  width: fit-content;
+}
+
+.typewriter::after {
+  content: '';
+  display: inline-block;
+  width: 0.25em;
+  height: 1em;
+  background-color: white;
+  position: absolute;
+  right: -0.5em;
+  top: 0;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}

@@ -104,7 +104,7 @@ void main() {
     float noise = 0.0;
     noise += 0.5 * fbm(cellCenter * 2.0 + u_time * 0.1);
     noise += 0.25 * fbm(cellCenter * 5.0 - u_time * 0.2);
-    noise += 0.125 * fbm(cellCenter * 10.0 + u_time * 0.5);
+    // noise += 0.125 * fbm(cellCenter * 10.0 + u_time * 0.5);
 
     // Mouse interaction for brightness highlight
     vec2 mouseNorm = u_mouse / u_resolution;
@@ -124,8 +124,9 @@ void main() {
 
     vec3 color = 0.5 * mouseColor + 4.0 * noiseColor;
 
-    // CRT scanlines with noise variation
-    float scanline = 0.9 + 0.1 * sin(uv.y * u_resolution.y * 3.0 + fbm(vec2(0.0, uv.y * 10.0)));
+    // CRT scanlines without noise variation
+    float scanline = 0.9 + 0.1 * sin(uv.y * u_resolution.y * 3.0);
+    // float scanline = 0.9 + 0.1 * sin(uv.y * u_resolution.y * 3.0 + fbm(vec2(0.0, uv.y * 10.0)));
     color *= scanline;
 
     // Subtle flicker based on noise to mimic natural light variations
