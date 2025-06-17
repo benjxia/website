@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { JSX } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import BackgroundTiles from './components/background/BackgroundTiles';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function Demo(): JSX.Element {
   return (
-    <div className="App">
+    <div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -20,6 +23,19 @@ function App() {
         </a>
       </header>
     </div>
+  );
+}
+
+function App(): JSX.Element {
+  return (
+    <>
+      <BackgroundTiles />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Demo />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
