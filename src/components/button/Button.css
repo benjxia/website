@@ -19,7 +19,8 @@
 .RedirectButton:hover {
     background-color: rgb(71, 198, 193);
     border-radius: 0%;
-    color: green;
+    mix-blend-mode: normal;
+    color: black;
     cursor: pointer;
     transition-duration: 0.5s;
 }

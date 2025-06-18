@@ -109,7 +109,7 @@ void main() {
     // Mouse interaction for brightness highlight
     vec2 mouseNorm = u_mouse / u_resolution;
     float dist = distance(mouseNorm, cellCenter);
-    float brightness = exp(-dist * 20.0);
+    float brightness = exp(-dist * 10.0);
 
     // Base color with subtle time and position variations
     vec3 baseColor = vec3(0.698, 0.346, 0.5294);
@@ -125,7 +125,7 @@ void main() {
     vec3 color = 0.5 * mouseColor + 4.0 * noiseColor;
 
     // CRT scanlines without noise variation
-    float scanline = 0.9 + 0.1 * sin(uv.y * u_resolution.y * 3.0);
+    float scanline = 1.0 + 0.5 * sin(uv.y * u_resolution.y * 2.0);
     // float scanline = 0.9 + 0.1 * sin(uv.y * u_resolution.y * 3.0 + fbm(vec2(0.0, uv.y * 10.0)));
     color *= scanline;
 
