@@ -18,7 +18,7 @@ const TEXT_LIST_SUBTITLE = [
 ]
 
 function Home(): JSX.Element {
-  const [displaySubtitle, setDisplaySubtitle] = useState(false);
+  const [displayBody, setDisplaySubtitle] = useState(false);
   return (
     <div>
       <header className="Home-header">
@@ -40,7 +40,7 @@ function Home(): JSX.Element {
             userSelect: 'none',
           }}
         >
-          {displaySubtitle
+          {displayBody
             ? <CycleTypingText
                 style={{fontWeight: 'bold', color: 'white',}}
                 text={TEXT_LIST_SUBTITLE}

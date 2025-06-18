@@ -6,9 +6,10 @@ interface TypingTextProps {
   style?: React.CSSProperties;
   speed?: number;
   callback?: (complete: boolean) => void; // Callback that's called upon text completion
+  hideCarat?: boolean; // Whether to hide the carat upon text completion
 }
 
-function TitleTypingText({ text, style, speed = 50 , callback }: TypingTextProps): JSX.Element {
+function TitleTypingText({ text, style, speed = 50 , callback, hideCarat = true }: TypingTextProps): JSX.Element {
   const [visibleText, setVisibleText] = useState('');
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
@@ -25,7 +26,7 @@ function TitleTypingText({ text, style, speed = 50 , callback }: TypingTextProps
   }, [text, speed, callback]);
 
   return (
-    <p className={`typewriter${visibleText.length === text.length ? ' done' : ''}`} style={style}>
+    <p className={`typewriter${hideCarat && visibleText.length === text.length ? ' done' : ''}`} style={style}>
       {visibleText || '\u200B'}
     </p>
   );
@@ -54,7 +55,7 @@ function CycleTypingText({ text, style, speed = 50 }: CycleTypingTextProps): JSX
           clearInterval(interval);
           setTimeout(() => {
             setStringIdx((prev) => (prev + 1) % text.length);
-            setDeleteText(false); // trigger typing next
+            setDeleteText(false); // trigger text typing for next string
           }, 1000);
         }
       }, speed);
@@ -66,7 +67,7 @@ function CycleTypingText({ text, style, speed = 50 }: CycleTypingTextProps): JSX
         if (i >= text[stringIdx].length) {
           clearInterval(interval);
           setTimeout(() => {
-            setDeleteText(true); // trigger deletion
+            setDeleteText(true); // trigger text deletion
           }, 1000);
         }
       }, speed);
