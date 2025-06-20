@@ -1,47 +1,45 @@
 .RedirectButton {
-    user-select: none;
-    display: block;
-    position: relative;
-    overflow: hidden;
-    background-color: transparent;
-    border: none;
-
-    /* text display properties */
-    mix-blend-mode: difference;
-    color: white;
-    font-size: 24px;
-    text-align: center;
-    text-decoration: none;
-    font-family: monospace;
-    font-weight: bold;
-    transition: color 0.5s, mix-blend-mode 0.5s;
-
-    z-index: 1;
+  user-select: none;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  border: none;
+  /* text display properties */
+  mix-blend-mode: difference;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
+  font-family: monospace;
+  font-weight: bold;
+  transition: color 0.5s, mix-blend-mode 0.5s;
+  z-index: 1;
 }
 
 .RedirectButton::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scaleX(0);
-    transform-origin: center;
-    width: 100%;
-    height: 100%;
-    padding: 0 12px; /* match button horizontal padding if needed */
-    background-color: rgb(71, 198, 193);
-    z-index: -1;
-    transition: transform 0.5s ease;
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 12px; /* match button horizontal padding if needed */
+  background-color: var(--colors-secondary);
+  z-index: -1;
+  transition: transform 0.5s ease;
 }
 
 /* Hover effect triggers background expansion */
 .RedirectButton:hover::before {
-    transform: translate(-50%, -50%) scaleX(1);
+  transform: translate(-50%, -50%) scaleX(1);
 }
 
 /* Other hover effects */
 .RedirectButton:hover {
-    mix-blend-mode: normal;
-    color: black;
-    cursor: pointer;
+  mix-blend-mode: normal;
+  color: black;
+  cursor: pointer;
 }

@@ -1,12 +1,38 @@
-.typewriter {
+.text {
   font-family: monospace;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  line-height: 1;
+
   white-space: nowrap;
   display: block;
   overflow: visible;
+
+  mix-blend-mode: difference;
+  position: relative;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.typewriter {
+  font-family: monospace;
+  font-weight: bold;
+  color: white;
   font-size: 1.5rem;
   line-height: 1;
+
+  white-space: nowrap;
+  display: block;
+  overflow: visible;
+
   position: relative;
   width: fit-content;
+
+  mix-blend-mode: difference;
+  pointer-events: none;
+  user-select: none;
 }
 
 .typewriter::after {

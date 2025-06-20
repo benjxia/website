@@ -1,5 +1,18 @@
-import React, { JSX, useEffect, useState } from 'react';
+import React, { JSX, ReactNode, useEffect, useState } from 'react';
 import './TypingText.css';
+
+interface TextProps {
+  children: ReactNode;
+  style?: React.CSSProperties;
+}
+
+function PageTitle({children, style={}}: TextProps): JSX.Element {
+  return (
+    <p className='text' style={style}>
+      {children}
+    </p>
+  );
+}
 
 interface TypingTextProps {
   text: string;
@@ -83,4 +96,4 @@ function CycleTypingText({ text, style, speed = 50 }: CycleTypingTextProps): JSX
   );
 }
 
-export { TitleTypingText as TypingText, CycleTypingText };
+export { TitleTypingText as TypingText, CycleTypingText, PageTitle };

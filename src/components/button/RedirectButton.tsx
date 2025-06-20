@@ -1,19 +1,24 @@
-import React, { JSX } from 'react';
+import React, { JSX, useEffect } from 'react';
 
 import './Button.css'
+import { COLORS } from '../../Colors';
 
 interface RedirectButtonProps {
-    text: string;
-    onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  text: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 function RedirectButton({text, onClick}: RedirectButtonProps): JSX.Element {
-    // vec3(0.2784, 0.7765, 0.757)
-    return (
-        <button className={'RedirectButton'} onClick={onClick}>
-            {text}
-        </button>
-    );
+  useEffect(() => {
+    // Allows COLORS.SECONDARY to be visible as --colors-secondary variable within Button.css
+    const root = document.documentElement;
+    root.style.setProperty('--colors-secondary', COLORS.SECONDARY);
+  }, [])
+  return (
+    <button className={'RedirectButton'} onClick={onClick}>
+      {text}
+    </button>
+  );
 }
 
 export default RedirectButton;

@@ -20,8 +20,7 @@ function BackgroundTiles(): JSX.Element {
         const resize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            gl.viewport(0, 0, window.innerWidth, window.innerHeight);
-
+            gl.viewport(0, 0, window.innerWidth, window.innerHeight)
             gridRef.current?.resize(canvas.width, canvas.height);
         };
         resize();

@@ -1,3 +1,5 @@
+import { COLORS, COLORS_VEC } from "../../Colors";
+
 // Each tile of the grid will take up 1/20th the min(window width, window height) - and consume the entire canvas
 const GRID_TILE_DIM = 0.05;
 
@@ -81,7 +83,7 @@ float fbm(vec2 p) {
     float amplitude = 0.5;
     float frequency = 1.0;
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 3; i++) {
         value += amplitude * perlin(p * frequency);
         frequency *= 2.0;
         amplitude *= 0.5;
@@ -112,7 +114,7 @@ void main() {
     float brightness = exp(-dist * 10.0);
 
     // Base color with subtle time and position variations
-    vec3 baseColor = vec3(0.698, 0.346, 0.5294);
+    vec3 baseColor = vec3(${COLORS_VEC.PRIMARY[0]}, ${COLORS_VEC.PRIMARY[1]}, ${COLORS_VEC.PRIMARY[2]});
     vec3 colorVariation = vec3(
         0.05 * sin(u_time + cellCenter.x * 10.0),
         0.05 * cos(u_time + cellCenter.y * 10.0),
@@ -120,7 +122,7 @@ void main() {
     );
 
     vec3 noiseColor = (baseColor + colorVariation) * noise;
-    vec3 mouseColor = vec3(0.2784, 0.7765, 0.757) * brightness;
+    vec3 mouseColor = vec3(${COLORS_VEC.SECONDARY[0]}, ${COLORS_VEC.SECONDARY[1]}, ${COLORS_VEC.SECONDARY[2]}) * brightness;
 
     vec3 color = 0.5 * mouseColor + 4.0 * noiseColor;
 
