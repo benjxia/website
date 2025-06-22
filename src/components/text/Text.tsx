@@ -1,16 +1,38 @@
 import React, { JSX, ReactNode, useEffect, useState } from 'react';
-import './TypingText.css';
+import './Text.css';
 
 interface TextProps {
   children: ReactNode;
   style?: React.CSSProperties;
+  noSelect?: boolean;
 }
 
-function PageTitle({children, style={}}: TextProps): JSX.Element {
+function DefaultText({children, style={}, noSelect=true}: TextProps): JSX.Element {
   return (
-    <p className='text' style={style}>
+    <p className='text' style={{
+      ...(noSelect && { pointerEvents: 'none', userSelect: 'none' }),
+      ...style,
+    }}>
       {children}
     </p>
+  );
+}
+
+function DefaultTitle({children, style, noSelect}: TextProps): JSX.Element {
+  return (
+    <DefaultText style={{fontSize: '24px'}}>
+      {children}
+    </DefaultText>
+  );
+}
+
+function DefaultBody({children, style, noSelect}: TextProps): JSX.Element {
+  return (
+    <DefaultText style={{
+      fontSize: '16px',
+    }} noSelect={false}>
+      {children}
+    </DefaultText>
   );
 }
 
@@ -22,7 +44,7 @@ interface TypingTextProps {
   hideCarat?: boolean; // Whether to hide the carat upon text completion
 }
 
-function TitleTypingText({ text, style, speed = 50 , callback, hideCarat = true }: TypingTextProps): JSX.Element {
+function TypingText({ text, style, speed = 50 , callback, hideCarat = true }: TypingTextProps): JSX.Element {
   const [visibleText, setVisibleText] = useState('');
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
@@ -96,4 +118,4 @@ function CycleTypingText({ text, style, speed = 50 }: CycleTypingTextProps): JSX
   );
 }
 
-export { TitleTypingText as TypingText, CycleTypingText, PageTitle };
+export { DefaultTitle, DefaultBody, TypingText, CycleTypingText, DefaultText };

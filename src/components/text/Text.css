@@ -5,15 +5,11 @@
   color: white;
   line-height: 1;
 
-  white-space: nowrap;
   display: block;
   overflow: visible;
 
   mix-blend-mode: difference;
   position: relative;
-
-  pointer-events: none;
-  user-select: none;
 }
 
 .typewriter {

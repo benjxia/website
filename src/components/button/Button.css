@@ -10,19 +10,18 @@
   color: white;
   font-size: 24px;
   text-align: center;
-  text-decoration: none;
   font-family: monospace;
   font-weight: bold;
   transition: color 0.5s, mix-blend-mode 0.5s;
   z-index: 1;
 }
 
+/* Background animation thingy */
 .RedirectButton::before {
   content: '';
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scaleX(0);
+  transform: translateX(-50%) scaleX(0);
   transform-origin: center;
   width: 100%;
   height: 100%;
@@ -34,7 +33,7 @@
 
 /* Hover effect triggers background expansion */
 .RedirectButton:hover::before {
-  transform: translate(-50%, -50%) scaleX(1);
+  transform: translateX(-50%) scaleX(1);
 }
 
 /* Other hover effects */
@@ -43,3 +42,99 @@
   color: black;
   cursor: pointer;
 }
+
+.HomeButton {
+  user-select: none;
+  display: block;
+  position: relative;
+
+  height: fit-content;
+  width: fit-content;
+  max-width: fit-content;
+
+  top: 20px;
+  left: 20px;
+
+  /* overflow: hidden; */
+  background-color: transparent;
+  border: none;
+  /* text display properties */
+  mix-blend-mode: difference;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  font-family: monospace;
+  font-weight: bold;
+
+  padding: 0 12px;
+
+  z-index: 1;
+
+  transition: color 0.5s;
+}
+
+/* Other hover effects */
+.HomeButton:hover {
+  mix-blend-mode: normal;
+  color: black;
+  cursor: pointer;
+}
+
+/* Arrow for home button */
+.HomeButton::before {
+  color: black;
+  content: '❰';
+  position: absolute;
+  display: inline-block;
+  bottom: 0.05em; /* align the arrow with the text vertically, not exact but close enuf */
+
+  transform: translateX(50%);
+  opacity: 0;
+  font-size: 24px;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.HomeButton:hover::before {
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+/* Background for home button */
+.HomeButton::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+
+  transform-origin: center;
+  transform: translateX(-50%) scaleX(0);
+  padding: 0 0px; /* match button horizontal padding if needed */
+
+  background-color: var(--colors-secondary);
+  z-index: -1;
+  transition: transform 0.25s ease;
+}
+
+/* Hover effect triggers background expansion */
+.HomeButton:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.HomeButton .HomeButton-text {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /* bottom: 12.5%; */
+  transform: translateX(0%);
+  transform-origin: center;
+  transition: transform 0.5s ease;
+}
+
+.HomeButton:hover .HomeButton-text{
+  transform: translateX(10%);
+}
+

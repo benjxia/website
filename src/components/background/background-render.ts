@@ -1,4 +1,4 @@
-import { COLORS, COLORS_VEC } from "../../Colors";
+import { COLORS_VEC } from "../../Colors";
 
 // Each tile of the grid will take up 1/20th the min(window width, window height) - and consume the entire canvas
 const GRID_TILE_DIM = 0.05;

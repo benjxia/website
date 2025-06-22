@@ -1,4 +1,4 @@
-import React, { JSX, useState } from 'react';
+import React, { JSX } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 
 import BackgroundTiles from './components/background/BackgroundTiles';
