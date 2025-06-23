@@ -1,6 +1,6 @@
 import React, { JSX, useEffect } from 'react';
 
-import { DefaultTitle, DefaultBody, DefaultText, TypingText } from '../../components/text/Text';
+import { DefaultBody } from '../../components/text/Text';
 
 import './Collection.css'
 import Layout from '../../components/layout/Layout';
@@ -21,7 +21,6 @@ function Collection(): JSX.Element {
         My collection of course notes from various topics across computer science (plus a few bonus slides from other departments).
         The notes have been gathered from several universities including Stanford, UCB, MIT, but primarily from UCSD, because that's where I went to school.
       </DefaultBody>
-
     </Layout>
   );
 }
