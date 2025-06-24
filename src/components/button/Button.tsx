@@ -41,4 +41,21 @@ function HomeButton(): JSX.Element {
   );
 }
 
-export { RedirectButton, HomeButton };
+interface IconButtonProps {
+  iconId: string; // FontAwesome icon ID fontawesome.com/
+  linkAddr: string; // URL icon should link to
+}
+
+function IconButton({ iconId, linkAddr }: IconButtonProps) {
+  const handleExternalLink = () => {
+    window.open(linkAddr); // Opens in a new tab
+    // Or, for the same tab: window.open('https://www.example.com');
+  };
+  return (
+    <button className={'RedirectButton'} onClick={handleExternalLink} style={{display: 'inline-block'}}>
+      <i className={iconId}></i>
+    </button>
+  );
+}
+
+export { RedirectButton, HomeButton, IconButton };

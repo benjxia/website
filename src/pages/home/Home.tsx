@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router';
 
 import './Home.css';
 import { TypingText, CycleTypingText } from '../../components/text/Text';
-import { RedirectButton } from '../../components/button/RedirectButton';
-import Column from '../../components/format/Column';
+import { IconButton, RedirectButton } from '../../components/button/Button';
+import { Row, Column } from '../../components/format/Format';
 
 const TITLE_TEXT = 'benjxia';
 
@@ -42,10 +42,15 @@ function Home(): JSX.Element {
       <CycleTypingText text={TEXT_LIST_SUBTITLE} speed={25} pause={!displayBody} />
       <Column>
         <RedirectButton text="the collection" onClick={(e) => {navigate('/collection')}}/>
-        <RedirectButton text="résumé"/>
-        <RedirectButton text="projects"/>
-        <RedirectButton text="about"/>
+        <RedirectButton text="résumé" onClick={(e) => {navigate('/résumé')}}/>
+        {/* <RedirectButton text="projects"/> */}
+        <RedirectButton text="about" onClick={(e) => {navigate('/about')}}/>
       </Column>
+      <Row>
+        <IconButton iconId='fa-brands fa-github' linkAddr='https://github.com/benjxia'/>
+        <IconButton iconId='fa-brands fa-linkedin' linkAddr='https://www.linkedin.com/in/benjxia/'/>
+        <IconButton iconId='fa-brands fa-instagram' linkAddr='https://www.instagram.com/benjxia/'/>
+      </Row>
     </header>
   );
 }

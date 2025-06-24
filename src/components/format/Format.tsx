@@ -12,4 +12,12 @@ function Column({children}: ColumnProps): JSX.Element {
     );
 }
 
-export default Column;
+function Row({children}: ColumnProps): JSX.Element {
+    return (
+        <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '5px'}}>
+            {children}
+        </div>
+    );
+}
+
+export { Column, Row };

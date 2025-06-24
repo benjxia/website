@@ -1,7 +1,9 @@
 .RedirectButton {
+  all: unset; /* reset all browser styles */
   user-select: none;
   display: block;
   position: relative;
+
   overflow: hidden;
   background-color: transparent;
   border: none;
@@ -44,16 +46,11 @@
 }
 
 .HomeButton {
+  all: unset; /* reset all browser styles */
   user-select: none;
   display: block;
   position: relative;
-
-  height: fit-content;
-  width: fit-content;
-  max-width: fit-content;
-
-  top: 20px;
-  left: min(20px, 2%);
+  overflow: visible;
 
   /* overflow: hidden; */
   background-color: transparent;
@@ -62,12 +59,14 @@
   mix-blend-mode: difference;
   color: white;
   font-size: 24px;
-  text-align: center;
+  text-align: left;
 
   font-family: monospace;
   font-weight: bold;
 
-  padding: 0 24px;
+  text-align: center;
+
+  margin-top: min(5vw, 36px);;
 
   z-index: 1;
 
@@ -90,7 +89,7 @@
   display: inline-block;
   bottom: 0.05em;
 
-  transform: translateX(50%);
+  transform: translateX(75%);
   opacity: 0;
   font-size: 24px;
   transition: all 0.4s ease;
@@ -98,21 +97,21 @@
 }
 
 .HomeButton:hover::before {
-  transform: translateX(-100%);
+  transform: translateX(0%);
   opacity: 1;
 }
 
 /* Background for home button */
 .HomeButton::after {
   content: '';
-  display: inline-block;
+  display: inline;
   position: absolute;
-  width: 100%;
+  width: 120%;
   height: 100%;
-  left: 50%;
+  left: 0%;
 
-  transform-origin: center;
-  transform: translateX(-50%) scaleX(0);
+  transform-origin: left;
+  transform: scaleX(0);
   padding: 0 0px; /* match button horizontal padding if needed */
 
   background-color: var(--colors-secondary);
@@ -122,7 +121,7 @@
 
 /* Hover effect triggers background expansion */
 .HomeButton:hover::after {
-  transform: translateX(-50%) scaleX(1);
+  transform: scaleX(1);
 }
 
 .HomeButton .HomeButton-text {
@@ -137,6 +136,6 @@
 }
 
 .HomeButton:hover .HomeButton-text{
-  transform: translateX(5%);
+  transform: translateX(15%);
 }
 
