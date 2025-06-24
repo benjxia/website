@@ -1,6 +1,5 @@
 import React, { JSX, useEffect } from 'react';
 
-import { DefaultBody } from '../../components/text/Text';
 
 import Layout from '../../components/layout/Layout';
 
