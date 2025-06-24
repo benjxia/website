@@ -53,7 +53,7 @@
   max-width: fit-content;
 
   top: 20px;
-  left: 20px;
+  left: min(20px, 2%);
 
   /* overflow: hidden; */
   background-color: transparent;
@@ -63,10 +63,11 @@
   color: white;
   font-size: 24px;
   text-align: center;
+
   font-family: monospace;
   font-weight: bold;
 
-  padding: 0 12px;
+  padding: 0 24px;
 
   z-index: 1;
 
@@ -81,12 +82,13 @@
 }
 
 /* Arrow for home button */
+/* 0.05em toalign the arrow with the text vertically, not exact but close enuf */
 .HomeButton::before {
   color: black;
   content: '❰';
   position: absolute;
   display: inline-block;
-  bottom: 0.05em; /* align the arrow with the text vertically, not exact but close enuf */
+  bottom: 0.05em;
 
   transform: translateX(50%);
   opacity: 0;
@@ -96,7 +98,7 @@
 }
 
 .HomeButton:hover::before {
-  transform: translateX(-50%);
+  transform: translateX(-100%);
   opacity: 1;
 }
 
@@ -135,6 +137,6 @@
 }
 
 .HomeButton:hover .HomeButton-text{
-  transform: translateX(10%);
+  transform: translateX(5%);
 }
 

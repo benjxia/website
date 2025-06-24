@@ -6,17 +6,18 @@ import { COLORS } from '../../Colors';
 
 interface RedirectButtonProps {
   text: string;
+  style?: React.CSSProperties;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-function RedirectButton({text, onClick}: RedirectButtonProps): JSX.Element {
+function RedirectButton({text, style, onClick}: RedirectButtonProps): JSX.Element {
   useEffect(() => {
     // Allows COLORS.SECONDARY to be visible as --colors-secondary variable within Button.css
     const root = document.documentElement;
     root.style.setProperty('--colors-secondary', COLORS.SECONDARY);
   }, [])
   return (
-    <button className={'RedirectButton'} onClick={onClick}>
+    <button className={'RedirectButton'} onClick={onClick} style={style}>
       {text}
     </button>
   );
@@ -35,8 +36,7 @@ function HomeButton(): JSX.Element {
     onClick={(e) => {
       navigate('/');
     }}>
-       <span className="HomeButton-text">Home</span>
-       {/* Home */}
+       <span className="HomeButton-text">benjxia</span>
     </button>
   );
 }

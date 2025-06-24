@@ -16,7 +16,7 @@
   font-family: monospace;
   font-weight: bold;
   color: white;
-  font-size: 1.5rem;
+  font-size: min(5vw, 36px);
   line-height: 1;
 
   white-space: nowrap;
@@ -25,6 +25,9 @@
 
   position: relative;
   width: fit-content;
+  height: min(5vw, 36px);
+
+  margin-top: min(5vw, 36px);
 
   mix-blend-mode: difference;
   pointer-events: none;
@@ -40,6 +43,7 @@
   background-color: white;
   position: absolute;
   top: 0;
+
   animation: blink-caret 0.75s step-end infinite;
 }
 

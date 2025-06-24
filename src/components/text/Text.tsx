@@ -71,14 +71,16 @@ interface CycleTypingTextProps {
   text: Array<string>;
   style?: React.CSSProperties;
   speed?: number;
+  pause?: boolean;
 }
 
-function CycleTypingText({ text, style, speed = 50 }: CycleTypingTextProps): JSX.Element {
+function CycleTypingText({ text, style, speed = 50, pause = false }: CycleTypingTextProps): JSX.Element {
   const [visibleText, setVisibleText] = useState('');
   const [stringIdx, setStringIdx] = useState(0);
   const [deleteText, setDeleteText] = useState(false);
 
   useEffect(() => {
+    if (pause) return;
     let interval: ReturnType<typeof setInterval>;
     if (deleteText) {
       let i = text[stringIdx].length;
@@ -108,7 +110,7 @@ function CycleTypingText({ text, style, speed = 50 }: CycleTypingTextProps): JSX
       }, speed);
     }
     return () => clearInterval(interval);
-  }, [deleteText, text, stringIdx, speed]);
+  }, [deleteText, text, stringIdx, speed, pause]);
 
 
   return (

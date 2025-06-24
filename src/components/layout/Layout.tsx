@@ -1,5 +1,6 @@
 import React, { JSX } from 'react';
-import { HomeButton } from '../button/RedirectButton';
+import { useNavigate } from 'react-router';
+import { HomeButton, RedirectButton } from '../button/RedirectButton';
 import { DefaultTitle, TypingText } from '../text/Text';
 
 import './Layout.css';
@@ -10,19 +11,18 @@ interface LayoutProps {
 }
 
 function Layout({title, children}: LayoutProps): JSX.Element {
+  const navigate = useNavigate();
   return (
     <>
-      <HomeButton />
-      <header className='Collection-header'>
-        <div className='Collection-div'>
-          <DefaultTitle>
-            benjxia
-          </DefaultTitle>
-          <TypingText text={title} hideCarat={false} />
-          {children}
-        </div>
-      </header>
+      <header className='Layout-header'>
+      <RedirectButton text={'benjxia'} onClick={(e) => navigate("/")} style={{top: '10px'}}/>
+      <TypingText text={title} hideCarat={false} style={{}}/>
+      <div className='Layout-div' style={{position: 'relative'}}>
+        {children}
+      </div>
+    </header>
     </>
+
   );
 }
 

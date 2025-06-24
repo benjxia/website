@@ -13,7 +13,9 @@
 }
 
 .Layout-div {
+  width: 80%;
   max-width: 80%;
+  height: fit-content;
   align-items: left;
   justify-content: left;
   overflow-wrap: break-word;
