@@ -42,7 +42,7 @@ function Home(): JSX.Element {
       <CycleTypingText text={TEXT_LIST_SUBTITLE} speed={25} pause={!displayBody} />
       <Column>
         <RedirectButton text="the collection" onClick={(e) => {navigate('/collection')}}/>
-        <RedirectButton text="résumé" onClick={(e) => {navigate('/résumé')}}/>
+        {/* <RedirectButton text="résumé" onClick={(e) => {navigate('/résumé')}}/> */}
         {/* <RedirectButton text="projects"/> */}
         <RedirectButton text="about" onClick={(e) => {navigate('/about')}}/>
       </Column>
