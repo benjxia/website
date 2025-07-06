@@ -9,23 +9,34 @@ import { Row, Column } from '../../components/format/Format';
 const TITLE_TEXT = 'benjxia';
 
 // Avoid making each string too long or it'll overflow off the page on mobile
+// const TEXT_LIST_SUBTITLE = [
+//   "i sometimes write readable code",
+//   "code monke",
+//   "not completely useless at...",
+//   "computer vision",
+//   "graphics (the 3d kind)",
+//   "the machine ain't learnin'",
+//   "operating systems",
+//   "(creating) race conditions",
+//   "distributed systems",
+//   "frontend stuff (against my will)",
+//   "my brain is page faulting...",
+//   "fixing others' merge conflicts",
+//   "sleeping for 12 hours",
+//   "decent at fps games too i guess?",
+//   "pls hire me",
+//   "out of ideas, looping this text"
+// ];
+
 const TEXT_LIST_SUBTITLE = [
-  "i sometimes write readable code",
-  "code monke",
-  "not completely useless at...",
-  "computer vision",
-  "graphics (the 3d kind)",
-  "the machine ain't learnin'",
-  "operating systems",
-  "(creating) race conditions",
-  "distributed systems",
-  "frontend stuff (against my will)",
-  "my brain is page faulting...",
-  "fixing others' merge conflicts",
-  "sleeping for 12 hours",
-  "decent at fps games too i guess?",
-  "pls hire me",
-  "out of ideas, looping this text"
+  "i sometimes wrote readable code",
+  "got laid off before starting",
+  "rage quit computer science",
+  "escaped the united states",
+  "now farmin' chickens elsewhere",
+  "(for eggs not for meat)",
+  "reject technology, touch grass",
+  "unemployment is inevitable",
 ];
 
 function Home(): JSX.Element {
