@@ -4,6 +4,8 @@ This uses React + TypeScript so install [node.js](https://nodejs.org/en/download
 
 WebGL2 is used for the background.
 
+Website is deployed via Cloudflare Pages, and will automatically build/deploy the `main` branch to `benjxia.dev` on pushes.
+
 # React Template Stuff
 In the project directory, you can run:
 
