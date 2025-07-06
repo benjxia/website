@@ -26,11 +26,11 @@ function DefaultTitle({children, style, noSelect}: TextProps): JSX.Element {
   );
 }
 
-function DefaultBody({children, style, noSelect}: TextProps): JSX.Element {
+function DefaultBody({children, style, noSelect=false}: TextProps): JSX.Element {
   return (
-    <DefaultText style={{
+    <DefaultText style={{...style,
       fontSize: '16px',
-    }} noSelect={false}>
+    }} noSelect={noSelect}>
       {children}
     </DefaultText>
   );

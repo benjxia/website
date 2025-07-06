@@ -10,7 +10,20 @@ import ugly from './img/ugly.png'
 
 const ABOUT_PAGE_TITLE = 'about me :)';
 
-function Resume(): JSX.Element {
+function Summary(): JSX.Element {
+  return (
+    <div className={'summary'}>
+      <img className={'face'} src={ugly} alt='there should be an ugly face here'/>
+      <DefaultBody style={{textAlign: 'center', width: '100%'}}>
+        Benjamin Xia // 夏博伦
+        <br/>
+        San Diego → Bay → San Diego → New Zealand
+      </DefaultBody>
+    </div>
+  );
+}
+
+function About(): JSX.Element {
   useEffect(() => {
     const oldTitle = document.title;
     document.title = ABOUT_PAGE_TITLE;
@@ -20,7 +33,7 @@ function Resume(): JSX.Element {
   }, [])
   return (
     <Layout title="about me">
-      <img className={'face'} src={ugly} alt='there should be an ugly face here'/>
+      <Summary />
       <DefaultBody>
         Pretend that I'm creative enough to create more than a generic "about me" section here. I did go out of my way to find the least appealing picture of my face I could find within a minute though.
       </DefaultBody>
@@ -41,4 +54,4 @@ function Resume(): JSX.Element {
   );
 }
 
-export default Resume;
+export default About;
