@@ -12,6 +12,10 @@
   position: relative;
 }
 
+.text a {
+  color: cyan;
+}
+
 .typewriter {
   font-family: monospace;
   font-weight: bold;
