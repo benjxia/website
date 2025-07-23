@@ -20,9 +20,9 @@ function Resume(): JSX.Element {
   return (
     <Layout title="(possibly outdated) résumé">
       <DefaultBody>
-        See <a href={'https://github.com/benjxia/resume/blob/main/Benjamin_Xia_Resume.pdf'}>here</a> for most up-to-date résumé.
+        See <a href='https://github.com/benjxia/resume/blob/main/Benjamin_Xia_Resume.pdf'>here</a> for most up-to-date résumé.
       </DefaultBody>
-      <iframe title={'resume'} src={`${resumePDF}#navpanes=0&toolbar=1&statusbar=0`} width="100%" height="800px" />
+      <iframe title='resume' src={`${resumePDF}#navpanes=0&toolbar=1&statusbar=0`} width="100%" height="800px" />
     </Layout>
   );
 }

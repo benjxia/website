@@ -1,4 +1,4 @@
-import React, { JSX, useEffect } from 'react';
+import React, { JSX, useState, useEffect } from 'react';
 
 
 import Layout from '../../components/layout/Layout';
@@ -7,13 +7,38 @@ import { DefaultBody } from '../../components/text/Text';
 import './About.css';
 
 import ugly from './img/ugly.png'
+import { COLORS } from '../../Colors';
 
 const ABOUT_PAGE_TITLE = 'about me :)';
 
 function Summary(): JSX.Element {
+  const [imageError, setImageError] = useState(false);
+
+    useEffect(() => {
+      // Allows COLORS.SECONDARY to be visible as --colors-secondary variable within Button.css
+      const root = document.documentElement;
+      root.style.setProperty('--colors-primary', COLORS.PRIMARY);
+      root.style.setProperty('--colors-secondary', COLORS.SECONDARY);
+    }, [])
+
+  const imgComponent = !imageError ?
+  (
+    <img
+      className='face'
+      src={ugly}
+      alt='there should be an ugly face here'
+      onError={() => setImageError(true)}
+      onLoad={() => setImageError(false)}/>
+  ) :
+  (
+    // <div className={'face sub'}></div>
+    <div className='face face-placeholder'>
+    </div>
+  );
+
   return (
-    <div className={'summary'}>
-      <img className={'face'} src={ugly} alt='there should be an ugly face here'/>
+    <div className='summary'>
+      {imgComponent}
       <DefaultBody style={{textAlign: 'center', width: '100%'}}>
         Benjamin Xia // 夏博伦
         <br/>

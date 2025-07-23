@@ -17,7 +17,7 @@ function RedirectButton({text, style, onClick}: RedirectButtonProps): JSX.Elemen
     root.style.setProperty('--colors-secondary', COLORS.SECONDARY);
   }, [])
   return (
-    <button className={'RedirectButton'} onClick={onClick} style={style}>
+    <button className='RedirectButton' onClick={onClick} style={style}>
       {text}
     </button>
   );
@@ -32,7 +32,7 @@ function HomeButton(): JSX.Element {
     root.style.setProperty('--colors-secondary', COLORS.SECONDARY);
   }, [])
   return (
-    <button className={'HomeButton'}
+    <button className='HomeButton'
     onClick={(e) => {
       navigate('/');
     }}>
@@ -52,7 +52,7 @@ function IconButton({ iconId, linkAddr }: IconButtonProps) {
     // Or, for the same tab: window.open('https://www.example.com');
   };
   return (
-    <button className={'RedirectButton'} onClick={handleExternalLink} style={{display: 'inline-block'}}>
+    <button className='RedirectButton' onClick={handleExternalLink} style={{display: 'inline-block'}}>
       <i className={iconId}></i>
     </button>
   );
