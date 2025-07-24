@@ -1,5 +1,5 @@
 .summary {
-    width: 25%;
+    width: max(25%, 120px);
     height: 25%;
     margin-right: 5%;
     margin-bottom: 5%;
@@ -10,6 +10,10 @@
     width: 100%;
     aspect-ratio: 1;
     border-radius: 50%;
+}
+
+.face-image {
+    vertical-align: bottom; /* Remove default image padding on the bottom or something */
 }
 
 .face-placeholder {

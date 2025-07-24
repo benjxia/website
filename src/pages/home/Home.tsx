@@ -55,6 +55,7 @@ function Home(): JSX.Element {
         <RedirectButton text="the collection" onClick={(e) => {navigate('/collection')}}/>
         {/* <RedirectButton text="résumé" onClick={(e) => {navigate('/résumé')}}/> */}
         {/* <RedirectButton text="projects"/> */}
+        {/* <RedirectButton text="photography"/> */}
         <RedirectButton text="about" onClick={(e) => {navigate('/about')}}/>
       </Column>
       <Row>
