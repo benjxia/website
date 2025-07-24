@@ -12,7 +12,7 @@ import { COLORS } from '../../Colors';
 const ABOUT_PAGE_TITLE = 'about me :)';
 
 function Summary(): JSX.Element {
-  const [imageError, setImageError] = useState(false);
+  const [imageLoaded, setImageLoad] = useState(false);
 
     useEffect(() => {
       // Allows COLORS.SECONDARY to be visible as --colors-secondary variable within Button.css
@@ -21,24 +21,17 @@ function Summary(): JSX.Element {
       root.style.setProperty('--colors-secondary', COLORS.SECONDARY);
     }, [])
 
-  const imgComponent = !imageError ?
-  (
-    <img
-      className='face'
-      src={ugly}
-      alt='there should be an ugly face here'
-      onError={() => setImageError(true)}
-      onLoad={() => setImageError(false)}/>
-  ) :
-  (
-    // <div className={'face sub'}></div>
-    <div className='face face-placeholder'>
-    </div>
-  );
-
   return (
     <div className='summary'>
-      {imgComponent}
+      {/* Image placeholder */}
+      {!imageLoaded && <div className='face face-placeholder'></div>}
+      <img
+        className='face'
+        src={ugly}
+        alt='there should be an ugly face here'
+        style={imageLoaded ? undefined : {display: 'none'}}
+        onLoad={() => setImageLoad(true)}
+      />
       <DefaultBody style={{textAlign: 'center', width: '100%'}}>
         Benjamin Xia // 夏博伦
         <br/>
