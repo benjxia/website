@@ -6,7 +6,7 @@ import { DefaultBody } from '../../components/text/Text';
 
 import './About.css';
 
-import ugly from './img/ugly.png'
+import ugly from './img/ugly2.png'
 import { COLORS } from '../../Colors';
 
 const ABOUT_PAGE_TITLE = 'about me :)';
@@ -33,9 +33,7 @@ function Summary(): JSX.Element {
         onLoad={() => setImageLoad(true)}
       />
       <DefaultBody style={{textAlign: 'center', width: '100%'}}>
-        Benjamin Xia
-        <br/>
-        [夏博伦]
+        Benjamin Xia//夏博伦
         <br/>
         <br/>
         San Diego<br/>
@@ -70,11 +68,11 @@ function About(): JSX.Element {
         I've also done a bit of frontend work when necessary, and it absolutely is not my forte, as is evident by this website's crappy design.
       </DefaultBody>
       <DefaultBody>
-        A few people might also recognize me from my brief stints in competitive Overwatch, where I mainly played tank heroes for a few teams including UC San Diego's 2021-2022 varsity team (I think they call it "UCSD Gold" now) and reached Top 500 on the North American leaderboard a few times.
+        A few people might also recognize me from my brief stints in competitive Overwatch, where I mainly played tank heroes for a few teams including UC San Diego's 2021-2022 varsity team (aka "UCSD Gold") and reached Top 500 on the North American leaderboard a few times.
         If you are one of those people, hi! :D, it's been a while.
       </DefaultBody>
       <DefaultBody>
-        In my free time I sometimes still play some shooter games, Chess, gym (irregularly), care for my pet budgies, and of course, farm chickens (for eggs! not meat!).
+        In my free time I sometimes still play some shooter games, Chess, gym, care for my pet budgies, and of course, farm chickens (for eggs).
         After some recent events I've decided to quit computer science and programming in general to become a chicken farmer in New Zealand, because I'm tired of getting laid off/having offers rescinded.
       </DefaultBody>
     </Layout>
