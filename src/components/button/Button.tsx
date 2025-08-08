@@ -1,43 +1,32 @@
-import React, { JSX, useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import React, { JSX } from 'react';
+import { Link } from 'react-router';
 
 import './Button.css'
-import { COLORS } from '../../Colors';
+import useThemeColors from '../../hooks/theme';
 
 interface RedirectButtonProps {
   text: string;
   style?: React.CSSProperties;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  destination?: string;
 }
 
-function RedirectButton({text, style, onClick}: RedirectButtonProps): JSX.Element {
-  useEffect(() => {
-    // Allows COLORS.SECONDARY to be visible as --colors-secondary variable within Button.css
-    const root = document.documentElement;
-    root.style.setProperty('--colors-secondary', COLORS.SECONDARY);
-  }, [])
+function RedirectButton({text, style, destination}: RedirectButtonProps): JSX.Element {
+  useThemeColors();
+
   return (
-    <button className='RedirectButton' onClick={onClick} style={style}>
+    <Link className='RedirectButton' to={destination || '/'} viewTransition>
       {text}
-    </button>
+    </Link>
   );
 }
 
 function HomeButton(): JSX.Element {
-  const navigate = useNavigate();
+  useThemeColors();
 
-  useEffect(() => {
-    // Allows COLORS.SECONDARY to be visible as --colors-secondary variable within Button.css
-    const root = document.documentElement;
-    root.style.setProperty('--colors-secondary', COLORS.SECONDARY);
-  }, [])
   return (
-    <button className='HomeButton'
-    onClick={(e) => {
-      navigate('/');
-    }}>
-       <span className="HomeButton-text">benjxia</span>
-    </button>
+    <Link className='HomeButton' to='/' viewTransition>
+      <span className="HomeButton-text">benjxia</span>
+    </Link>
   );
 }
 
@@ -46,7 +35,7 @@ interface IconButtonProps {
   linkAddr: string; // URL icon should link to
 }
 
-function IconButton({ iconId, linkAddr }: IconButtonProps) {
+function IconButton({ iconId, linkAddr }: IconButtonProps): JSX.Element {
   const handleExternalLink = () => {
     window.open(linkAddr); // Opens in a new tab
     // Or, for the same tab: window.open('https://www.example.com');

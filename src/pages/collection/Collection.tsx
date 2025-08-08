@@ -1,20 +1,15 @@
-import React, { JSX, useEffect } from 'react';
+import { JSX } from 'react';
 
 import { DefaultBody } from '../../components/text/Text';
 
-import './Collection.css'
 import Layout from '../../components/layout/Layout';
+import usePageTitle from '../../hooks/page-title';
 
 const COLLECTION_PAGE_TITLE = 'the collection';
 
 function Collection(): JSX.Element {
-  useEffect(() => {
-    const oldTitle = document.title;
-    document.title = COLLECTION_PAGE_TITLE;
-    return () => {
-      document.title = oldTitle;
-    }
-  }, [])
+  usePageTitle(COLLECTION_PAGE_TITLE);
+
   return (
     <Layout title="the collection">
       <DefaultBody>

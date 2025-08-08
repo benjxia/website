@@ -4,7 +4,20 @@
     height: 25%;
     margin-right: 5%;
     margin-bottom: 5%;
-    float: left;
+    float: left; /* todo: media query to remove this */
+
+    @media (max-width: 950px) {
+        float: none;
+        width: 100%;
+        height: fit-content;
+        box-sizing: border-box;
+        margin-right: 0;
+        margin-bottom: 20px;
+
+        align-items: center;
+
+        justify-content: center;
+    }
 }
 
 .summary::before {
@@ -21,14 +34,45 @@
     z-index: -1;
 }
 
+.SummaryText {
+    /* Disable cursor selection on text */
+    pointer-events: none;
+    user-select: none;
+
+    text-align: center;
+    width: 100%;
+
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    color: white;
+    line-height: 1;
+
+    display: block;
+    overflow: visible;
+
+    mix-blend-mode: difference;
+    position: relative;
+}
+
 .face {
+    position: relative;
     width: 100%;
     aspect-ratio: 1;
     border-radius: 50%;
+
+    @media (max-width: 950px) {
+        display: block;
+        height: 128px;
+        width: auto;
+        aspect-ratio: 1;
+        margin: auto;
+    }
 }
 
 .face-image {
     vertical-align: bottom; /* Remove default image padding on the bottom or something */
+    pointer-events: none; /* Disable image copy paste */
 }
 
 .face-placeholder {

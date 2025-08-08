@@ -1,4 +1,4 @@
-import React, { JSX, useState, useEffect } from 'react';
+import { JSX, useState, ReactNode } from 'react';
 
 
 import Layout from '../../components/layout/Layout';
@@ -7,19 +7,27 @@ import { DefaultBody } from '../../components/text/Text';
 import './About.css';
 
 import ugly from './img/ugly2.png'
-import { COLORS } from '../../Colors';
+import useThemeColors from '../../hooks/theme';
+import usePageTitle from '../../hooks/page-title';
 
 const ABOUT_PAGE_TITLE = 'about me :)';
+
+interface SummaryTextProps {
+  children: ReactNode;
+}
+
+function SummaryText({children}: SummaryTextProps): JSX.Element {
+  return (
+    <p className='SummaryText'>
+      {children}
+    </p>
+  );
+}
 
 function Summary(): JSX.Element {
   const [imageLoaded, setImageLoad] = useState(false);
 
-    useEffect(() => {
-      // Allows COLORS.SECONDARY to be visible as --colors-secondary variable within Button.css
-      const root = document.documentElement;
-      root.style.setProperty('--colors-primary', COLORS.PRIMARY);
-      root.style.setProperty('--colors-secondary', COLORS.SECONDARY);
-    }, [])
+  useThemeColors();
 
   return (
     <div className='summary'>
@@ -29,11 +37,13 @@ function Summary(): JSX.Element {
         className='face face-image'
         src={ugly}
         alt='there should be an ugly face here'
-        style={imageLoaded ? undefined : {display: 'none'}}
+        style={imageLoaded ? {} : {display: 'none'}}
         onLoad={() => setImageLoad(true)}
       />
-      <DefaultBody style={{textAlign: 'center', width: '100%'}}>
+      <SummaryText>
         Benjamin Xia//夏博伦
+        <br/>
+        <span>benjxia</span>&#64;<span>benjxia.dev</span>
         <br/>
         <br/>
         San Diego<br/>
@@ -43,19 +53,14 @@ function Summary(): JSX.Element {
         San Diego<br/>
         ↓<br/>
         New Zealand
-      </DefaultBody>
+      </SummaryText>
     </div>
   );
 }
 
 function About(): JSX.Element {
-  useEffect(() => {
-    const oldTitle = document.title;
-    document.title = ABOUT_PAGE_TITLE;
-    return () => {
-      document.title = oldTitle;
-    }
-  }, [])
+  usePageTitle(ABOUT_PAGE_TITLE);
+
   return (
     <Layout title="about me">
       <Summary />

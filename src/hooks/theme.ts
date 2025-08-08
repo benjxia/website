@@ -1,0 +1,13 @@
+import { useEffect } from "react";
+import { COLORS } from "../Colors";
+
+function useThemeColors() {
+    useEffect(() => {
+      // Allows COLORS.SECONDARY to be visible as --colors-secondary variable within Button.css
+      const root = document.documentElement;
+      root.style.setProperty('--colors-primary', COLORS.PRIMARY);
+      root.style.setProperty('--colors-secondary', COLORS.SECONDARY);
+    }, []);
+}
+
+export default useThemeColors;

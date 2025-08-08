@@ -5,6 +5,7 @@ interface TextProps {
   children: ReactNode;
   style?: React.CSSProperties;
   noSelect?: boolean;
+  fontSize?: string;
 }
 
 function DefaultText({children, style={}, noSelect=true}: TextProps): JSX.Element {
@@ -26,10 +27,10 @@ function DefaultTitle({children, style, noSelect}: TextProps): JSX.Element {
   );
 }
 
-function DefaultBody({children, style, noSelect=false}: TextProps): JSX.Element {
+function DefaultBody({children, style, noSelect=false, fontSize='16px'}: TextProps): JSX.Element {
   return (
     <DefaultText style={{...style,
-      fontSize: '16px',
+      fontSize: fontSize,
     }} noSelect={noSelect}>
       {children}
     </DefaultText>
