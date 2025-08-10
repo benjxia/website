@@ -3,7 +3,7 @@ import { COLORS } from "../Colors";
 
 function useThemeColors() {
     useEffect(() => {
-      // Allows COLORS.SECONDARY to be visible as --colors-secondary variable within Button.css
+      // Allows COLORS.PRIMARY and COLORS.SECONDARY to be visible as --colors-secondary variable within included css files
       const root = document.documentElement;
       root.style.setProperty('--colors-primary', COLORS.PRIMARY);
       root.style.setProperty('--colors-secondary', COLORS.SECONDARY);

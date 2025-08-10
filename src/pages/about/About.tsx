@@ -25,7 +25,7 @@ function SummaryText({children}: SummaryTextProps): JSX.Element {
 }
 
 function Summary(): JSX.Element {
-  const [imageLoaded, setImageLoad] = useState(false);
+  const [imageLoaded, setImageLoad] = useState<boolean>(false);
 
   useThemeColors();
 

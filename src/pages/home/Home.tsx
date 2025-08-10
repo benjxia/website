@@ -4,6 +4,7 @@ import './Home.css';
 import { TypingText, CycleTypingText } from '../../components/text/Text';
 import { IconButton, RedirectButton } from '../../components/button/Button';
 import { Row, Column } from '../../components/format/Format';
+import PageWrapper from '../../components/wrappers/Wrapper';
 
 const TITLE_TEXT = 'benjxia';
 
@@ -38,10 +39,11 @@ const TEXT_LIST_SUBTITLE = [
   "unemployment is inevitable",
 ];
 
-function Home(): JSX.Element {
-  const [displayBody, setDisplaySubtitle] = useState(false);
 
-  return (
+function Home(): JSX.Element {
+  const [displayBody, setDisplaySubtitle] = useState<boolean>(false);
+
+  const HomeContent = (
     <header className="Home-header">
       <div style={{height: '2em', marginBottom: '2em'}}>
         <TypingText style={{
@@ -52,7 +54,7 @@ function Home(): JSX.Element {
       <Column>
         <RedirectButton text='the collection' destination='/collection' />
         <RedirectButton text='presentations' destination='/presentations' />
-        <RedirectButton text='résumé' destination='/résumé' />
+        {/* <RedirectButton text='résumé' destination='/résumé' /> */}
         <RedirectButton text='about' destination='/about'/>
       </Column>
       <Row>
@@ -61,6 +63,12 @@ function Home(): JSX.Element {
         <IconButton iconId='fa-brands fa-instagram' linkAddr='https://www.instagram.com/benjxia/'/>
       </Row>
     </header>
+  );
+
+  return (
+    <PageWrapper>
+      {HomeContent}
+    </PageWrapper>
   );
 }
 

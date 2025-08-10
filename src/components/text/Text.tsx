@@ -46,7 +46,7 @@ interface TypingTextProps {
 }
 
 function TypingText({ text, style, speed = 50 , callback, hideCarat = true }: TypingTextProps): JSX.Element {
-  const [visibleText, setVisibleText] = useState('');
+  const [visibleText, setVisibleText] = useState<string>('');
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
     let i = 0;
@@ -76,9 +76,9 @@ interface CycleTypingTextProps {
 }
 
 function CycleTypingText({ text, style, speed = 50, pause = false }: CycleTypingTextProps): JSX.Element {
-  const [visibleText, setVisibleText] = useState('');
-  const [stringIdx, setStringIdx] = useState(0);
-  const [deleteText, setDeleteText] = useState(false);
+  const [visibleText, setVisibleText] = useState<string>('');
+  const [stringIdx, setStringIdx] = useState<number>(0);
+  const [deleteText, setDeleteText] = useState<boolean>(false);
 
   useEffect(() => {
     if (pause) return;

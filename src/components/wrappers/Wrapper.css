@@ -1,0 +1,12 @@
+.page-wrapper {
+  opacity: 0;
+  animation: load-in 0.25s forwards;
+  transform: translateX(-2.5%);
+}
+
+@keyframes load-in {
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
