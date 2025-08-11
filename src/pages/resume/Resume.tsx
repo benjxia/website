@@ -3,7 +3,6 @@ import { JSX } from 'react';
 import Layout from '../../components/layout/Layout';
 import { DefaultBody } from '../../components/text/Text';
 
-// @ts-ignore
 import resumePDF from './assets/Redacted_Benjamin_Xia_Resume.pdf';
 // const resumePDF = '';
 

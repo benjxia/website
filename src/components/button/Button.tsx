@@ -10,7 +10,7 @@ interface RedirectButtonProps {
   destination?: string;
 }
 
-function RedirectButton({text, style, destination}: RedirectButtonProps): JSX.Element {
+function RedirectButton({text, destination}: RedirectButtonProps): JSX.Element {
   useThemeColors();
 
   return (

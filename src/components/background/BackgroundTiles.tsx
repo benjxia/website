@@ -2,8 +2,8 @@ import React, { JSX, useRef, useEffect } from 'react';
 import { GridRenderer } from './background-render';
 
 function BackgroundTiles(): JSX.Element {
-    var canvasRef = useRef<HTMLCanvasElement>(null);
-    var gridRef = useRef<GridRenderer>(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const gridRef = useRef<GridRenderer>(null);
     const mousePosRef = useRef({ x: 0, y: 0 });
 
     useEffect(() => {
@@ -28,7 +28,7 @@ function BackgroundTiles(): JSX.Element {
 
       // Mouse event listener to update background effects
       const handleMouseMove = (e: MouseEvent) => {
-        var mousePos = mousePosRef.current;
+        const mousePos = mousePosRef.current;
         const x = e.clientX;
         const y = e.clientY;
         mousePos.x = x;
@@ -44,7 +44,7 @@ function BackgroundTiles(): JSX.Element {
         if (time - lastFrameTime >= frameDuration) {
           lastFrameTime = time;
 
-          var mousePos = mousePosRef.current;
+          const mousePos = mousePosRef.current;
           gridRef.current?.render(mousePos.x, mousePos.y, (Date.now() - startTime) / 1000);
         }
         requestAnimationFrame(draw);

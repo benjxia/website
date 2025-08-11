@@ -19,7 +19,7 @@ function DefaultText({children, style={}, noSelect=true}: TextProps): JSX.Elemen
   );
 }
 
-function DefaultTitle({children, style, noSelect}: TextProps): JSX.Element {
+function DefaultTitle({children}: TextProps): JSX.Element {
   return (
     <DefaultText style={{fontSize: '24px'}}>
       {children}
@@ -48,9 +48,8 @@ interface TypingTextProps {
 function TypingText({ text, style, speed = 50 , callback, hideCarat = true }: TypingTextProps): JSX.Element {
   const [visibleText, setVisibleText] = useState<string>('');
   useEffect(() => {
-    let interval: ReturnType<typeof setInterval>;
     let i = 0;
-    interval = setInterval(() => {
+    const interval = setInterval(() => {
       i++;
       setVisibleText(text.slice(0, i));
       if (i >= text.length) {

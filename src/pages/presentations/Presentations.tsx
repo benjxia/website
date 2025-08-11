@@ -5,27 +5,16 @@ import { DefaultBody } from '../../components/text/Text';
 import Layout from '../../components/layout/Layout';
 import usePageTitle from '../../hooks/page-title';
 
-// @ts-ignore
 import cse110 from './slides/cse_110_pitch.pdf';
-// @ts-ignore
 import cse151b from './slides/CSE_151B_Final_Presentation.pdf';
-// @ts-ignore
 import cogs108 from './slides/COGS108_Final_Project.pdf';
-// @ts-ignore
-import cse150b from './slides/CSE 150B Week 3 Discussion.pdf';
-// @ts-ignore
+import cse150b from './slides/CSE-150B-Week-3-Discussion.pdf';
 import cse125 from './slides/cse_125_demo.pdf';
-// @ts-ignore
 import cse291_llm from './slides/CSE291_VCC_Discussion.pdf';
-// @ts-ignore
-import cse291_cog from './slides/CSE291 - Final Project Presentation (Cognify, Team 4).pptx.pdf';
-// @ts-ignore
-import cse290 from './slides/CSE290 Alpa.pdf';
-// @ts-ignore
-import cse252d_scenescript from './slides/SceneScript.pptx.pdf';
-// @ts-ignore
+import cse291_cog from './slides/CSE291-Final-Project-Cognify-Team4.pdf';
+import cse290 from './slides/CSE290-Alpa.pdf';
+import cse252d_scenescript from './slides/SceneScript.pdf';
 import cse252d_fmgs from './slides/FMGS_final_presentation.pdf';
-// @ts-ignore
 import cse253 from './slides/cse253_a2.pdf';
 
 const PRESENTATIONS_PAGE_TITLE = 'presentations';
