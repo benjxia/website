@@ -25,7 +25,7 @@ function HomeButton(): JSX.Element {
 
   return (
     <Link className='HomeButton' to='/' viewTransition>
-      <span className="HomeButton-text">benjxia</span>
+      <nav className="HomeButton-text">benjxia</nav>
     </Link>
   );
 }
