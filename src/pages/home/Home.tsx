@@ -29,14 +29,13 @@ const TITLE_TEXT = 'benjxia';
 // ];
 
 const TEXT_LIST_SUBTITLE = [
+  "fulltime chicken farmer",
   "i sometimes wrote readable code",
-  "got laid off before starting",
   "rage quit computer science",
   "escaped the united states",
   "now farmin' chickens elsewhere",
-  "(for eggs not for meat)",
   "reject technology, touch grass",
-  "unemployment is inevitable",
+  "birds are very fluffy",
 ];
 
 
@@ -53,7 +52,7 @@ function Home(): JSX.Element {
       <CycleTypingText text={TEXT_LIST_SUBTITLE} speed={25} pause={!displayBody} />
       <Column>
         <RedirectButton text='the collection' destination='/collection' />
-        <RedirectButton text='presentations' destination='/presentations' />
+        {/* <RedirectButton text='presentations' destination='/presentations' /> */}
         {/* <RedirectButton text='résumé' destination='/résumé' /> */}
         <RedirectButton text='about' destination='/about'/>
       </Column>

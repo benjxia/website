@@ -15,7 +15,9 @@ function RedirectButton({text, destination}: RedirectButtonProps): JSX.Element {
 
   return (
     <Link className='RedirectButton' to={destination || '/'} viewTransition>
-      {text}
+      <span data-nosnippet>
+        {text}
+      </span>
     </Link>
   );
 }
