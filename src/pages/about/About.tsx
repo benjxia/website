@@ -65,7 +65,7 @@ function About(): JSX.Element {
     <Layout title="about me">
       <Summary />
       <DefaultBody>
-        Pretend that I'm creative enough to create more than a generic "about me" section here. I did go out of my way to find the least appealing picture of my face I could find within a minute though.
+        Pretend that I'm creative enough to create more than a generic "about me" section here. I did go out of my way to find the least appealing picture of my face saved on my computer though.
       </DefaultBody>
       <DefaultBody>
         I graduated from Westview High School in 2021, and from UC San Diego with a Bachelor's in Computer Science in 2024, and a Master's in Computer Science in 2025. My main focuses have included a combination of
@@ -78,7 +78,6 @@ function About(): JSX.Element {
       </DefaultBody>
       <DefaultBody>
         In my free time I sometimes still play some shooter games, Chess, gym, care for my pet budgies, and of course, farm chickens (for eggs).
-        After some recent events I've decided to quit computer science and programming in general to become a chicken farmer in New Zealand, because I'm tired of getting laid off/having offers rescinded.
       </DefaultBody>
     </Layout>
   );

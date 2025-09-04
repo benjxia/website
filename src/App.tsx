@@ -4,7 +4,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 import BackgroundTiles from './components/background/BackgroundTiles';
 import Collection from './pages/collection/Collection';
 import Home from './pages/home/Home';
-import Resume from './pages/resume/Resume';
+// import Resume from './pages/resume/Resume';
 import About from './pages/about/About';
 // import Presentations from './pages/presentations/Presentations';
 
