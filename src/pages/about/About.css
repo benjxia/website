@@ -53,6 +53,8 @@
 
     mix-blend-mode: difference;
     position: relative;
+
+    padding-bottom: 10px;
 }
 
 .face {
