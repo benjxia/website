@@ -6,7 +6,7 @@ import { DefaultBody } from '../../components/text/Text';
 
 import './About.css';
 
-import ugly from './img/ugly2.png'
+import ugly from './img/IMG_4099.png'
 import useThemeColors from '../../hooks/theme';
 import usePageTitle from '../../hooks/page-title';
 
@@ -48,11 +48,11 @@ function Summary(): JSX.Element {
         <br/>
         San Diego<br/>
         ↓<br/>
-        Bay<br/>
+        South Bay<br/>
         ↓<br/>
         San Diego<br/>
         ↓<br/>
-        New Zealand
+        Auckland
       </SummaryText>
     </div>
   );
@@ -65,19 +65,23 @@ function About(): JSX.Element {
     <Layout title="about me">
       <Summary />
       <DefaultBody>
-        Pretend that I'm creative enough to create more than a generic "about me" section here. I did go out of my way to find the least appealing picture of my face saved on my computer though.
+        Pretend that I'm creative enough to write something more than a generic "about me" section. I wrote this when I was tired.
       </DefaultBody>
       <DefaultBody>
         I graduated from Westview High School in 2021, and from UC San Diego with a Bachelor's in Computer Science in 2024, and a Master's in Computer Science in 2025. My main focuses have included a combination of
         computer vision - both classical and deep learning based, 3d graphics, (non-generative) machine learning theory, operating systems, high performance computing including GPU programming, and a bit of distributed systems for fun.
-        I've also done a bit of frontend work when necessary, and it absolutely is not my forte, as is evident by this website's crappy design.
+        I've also done a bit of frontend work when necessary, and it absolutely is not my forte, as is evident by this website's simple, and crappy design.
       </DefaultBody>
       <DefaultBody>
         A few people might also recognize me from my brief stints in competitive Overwatch, where I mainly played tank heroes for a few teams including UC San Diego's 2021-2022 varsity team (aka "UCSD Gold") and reached Top 500 on the North American leaderboard a few times.
         If you are one of those people, hi! :D, it's been a while.
       </DefaultBody>
       <DefaultBody>
-        In my free time I sometimes still play some shooter games, Chess, gym, care for my pet budgies, and of course, farm chickens (for eggs).
+        In my free time I sometimes still play some shooter games, chess, gym, care for my pet budgies, and of course, farm chickens (for eggs).
+      </DefaultBody>
+      <DefaultBody>
+        After some layoffs and rescinded offers, I've decided to use my savings to start my own chicken farm near Auckland, New Zealand, as the human body simply isn't built to sit in front of a computer all day.
+        If you happen to be in the Auckland area, feel free to contact me for some affordable, ethically sourced, organic chicken eggs :). We've also recently expanded our operations under a new banner: Eggs4Less!
       </DefaultBody>
     </Layout>
   );

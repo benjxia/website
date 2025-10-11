@@ -6,7 +6,7 @@
     margin-bottom: 5%;
     float: left; /* todo: media query to remove this */
 
-    @media (max-width: 950px) {
+    @media (max-width: 1200px) {
         float: none;
         width: 100%;
         height: fit-content;
@@ -48,7 +48,7 @@
     color: white;
     line-height: 1;
 
-    display: block;
+    /* display: block; */
     overflow: visible;
 
     mix-blend-mode: difference;
@@ -58,14 +58,18 @@
 .face {
     position: relative;
     width: 100%;
-    aspect-ratio: 1;
-    border-radius: 50%;
+    height: 300px;
+    object-fit: cover;
+    object-position: 50% 30%;
+    overflow-y: hidden;
 
-    @media (max-width: 950px) {
+    aspect-ratio: initial;
+    border-radius: 25px;
+
+    @media (max-width: 1200px) {
         display: block;
-        height: 128px;
+        height: 300px;
         width: auto;
-        aspect-ratio: 1;
         margin: auto;
     }
 }

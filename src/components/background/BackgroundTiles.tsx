@@ -20,6 +20,10 @@ function BackgroundTiles(): JSX.Element {
           canvas.height = window.innerHeight;
           gl.viewport(0, 0, window.innerWidth, window.innerHeight)
           gridRef.current?.resize(canvas.width, canvas.height);
+
+          // Changing canvas size completely wipes our canvas, re-render to avoid flickering
+          const mousePos = mousePosRef.current;
+          gridRef.current?.render(mousePos.x, mousePos.y, (Date.now() - startTime) / 1000);
       };
       resize();
       window.addEventListener("resize", resize);
