@@ -1,25 +1,25 @@
+.about-page-wrapper {
+    display: flex;
+    flex-direction: row;
+    /* Turns into flex-direction: column for smaller screen widths */
+}
+
+.about-body-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
 .summary {
     position: relative;
     width: max(25%, 120px);
-    height: 25%;
+    height: 100%;
     margin-right: 5%;
-    margin-bottom: 5%;
-    float: left; /* todo: media query to remove this */
+    display: inline-block;
 
-    @media (max-width: 1200px) {
-        float: none;
-        width: 100%;
-        height: fit-content;
-        box-sizing: border-box;
-        margin-right: 0;
-        margin-bottom: 20px;
-
-        align-items: center;
-
-        justify-content: center;
-    }
+    flex-shrink: 0;
 }
 
+/* Summary background */
 .summary::before {
     content: "";
     position: absolute;
@@ -48,13 +48,10 @@
     color: white;
     line-height: 1;
 
-    /* display: block; */
     overflow: visible;
 
     mix-blend-mode: difference;
     position: relative;
-
-    padding-bottom: 10px;
 }
 
 .face {
@@ -67,12 +64,33 @@
 
     aspect-ratio: initial;
     border-radius: 25px;
+}
 
-    @media (max-width: 1200px) {
+/* Low width screens */
+@media (max-width: 1000px) {
+    .summary {
+        width: 100%;
+        height: fit-content;
+        margin-right: 0;
+
+        align-items: center;
+
+        justify-content: center;
+
         display: block;
-        height: 300px;
-        width: auto;
-        margin: auto;
+    }
+
+    .face {
+        height: 400px;
+        object-position: 50% 15%;
+    }
+
+    .about-page-wrapper {
+        flex-direction: column;
+    }
+
+    .about-body-wrapper {
+        display: block;
     }
 }
 

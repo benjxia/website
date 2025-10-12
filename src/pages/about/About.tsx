@@ -58,12 +58,9 @@ function Summary(): JSX.Element {
   );
 }
 
-function About(): JSX.Element {
-  usePageTitle(ABOUT_PAGE_TITLE);
-
+function Body(): JSX.Element {
   return (
-    <Layout title="about me">
-      <Summary />
+    <div className="about-body-wrapper">
       <DefaultBody>
         Pretend that I'm creative enough to write something more than a generic "about me" section. I wrote this when I was tired.
       </DefaultBody>
@@ -83,6 +80,19 @@ function About(): JSX.Element {
         After some layoffs and rescinded offers, I've decided to use my savings to start my own chicken farm near Auckland, New Zealand, as the human body simply isn't built to sit in front of a computer all day.
         If you happen to be in the Auckland area, feel free to contact me for some affordable, ethically sourced, organic chicken eggs :). We've also recently expanded our operations under a new banner: Eggs4Less!
       </DefaultBody>
+    </div>
+  );
+}
+
+function About(): JSX.Element {
+  usePageTitle(ABOUT_PAGE_TITLE);
+
+  return (
+    <Layout title="about me">
+      <div className="about-page-wrapper">
+        <Summary />
+        <Body />
+      </div>
     </Layout>
   );
 }
