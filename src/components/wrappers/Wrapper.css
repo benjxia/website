@@ -1,10 +1,23 @@
 .page-wrapper {
-  opacity: 0;
-  animation: load-in 0.25s forwards;
-  transform: translateX(-2.5%);
+  position: relative;
+  background: transparent;
+
+  width: 100%;
+  height: 100%;
+  /*
+  Page transitions disabled for now since the opacity and transformations would place the page content in a separate
+  stacking context from the background, and cause issues with re-rendering shit.
+  */
+  
+  /* will-change: transform, opacity;
+  animation: load-in 0.5s forwards; */
 }
 
 @keyframes load-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-2.5%);
+  }
   100% {
     opacity: 1;
     transform: translateX(0%);

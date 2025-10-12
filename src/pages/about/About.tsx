@@ -18,7 +18,7 @@ interface SummaryTextProps {
 
 function SummaryText({children}: SummaryTextProps): JSX.Element {
   return (
-    <p className='SummaryText'>
+    <p className='summary-text'>
       {children}
     </p>
   );
