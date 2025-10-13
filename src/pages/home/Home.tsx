@@ -1,4 +1,4 @@
-import { JSX, useState } from 'react';
+import React, { JSX, useState } from 'react';
 
 import './Home.css';
 import { TypingText, CycleTypingText } from '../../components/text/Text';

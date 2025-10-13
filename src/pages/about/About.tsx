@@ -1,5 +1,4 @@
-import { JSX, useState, ReactNode } from 'react';
-
+import React, { JSX, useState, ReactNode } from 'react';
 
 import Layout from '../../components/layout/Layout';
 import { DefaultBody } from '../../components/text/Text';
@@ -43,7 +42,7 @@ function Summary(): JSX.Element {
       <SummaryText>
         Benjamin Xia//夏博伦
         <br/>
-        <span>benjxia</span>&#64;<span>benjxia.dev</span>
+        <span>me</span>&#64;<span>benjxia.dev</span>
         <br/>
         <br/>
         San Diego<br/>
@@ -62,23 +61,23 @@ function Body(): JSX.Element {
   return (
     <div className="about-body-wrapper">
       <DefaultBody>
-        Pretend that I'm creative enough to write something more than a generic "about me" section. I wrote this when I was tired.
+        Pretend that I&apos;m creative enough to write something more than a generic &quot;about me&quot; section. I wrote this when I was tired.
       </DefaultBody>
       <DefaultBody>
-        I graduated from Westview High School in 2021, and from UC San Diego with a Bachelor's in Computer Science in 2024, and a Master's in Computer Science in 2025. My main focuses have included a combination of
+        I graduated from Westview High School in 2021, and from UC San Diego with a Bachelor&apos;s in Computer Science in 2024, and a Master&apos;s in Computer Science in 2025. My main focuses have included a combination of
         computer vision - both classical and deep learning based, 3d graphics, (non-generative) machine learning theory, operating systems, high performance computing including GPU programming, and a bit of distributed systems for fun.
-        I've also done a bit of frontend work when necessary, and it absolutely is not my forte, as is evident by this website's simple, and crappy design.
+        I&apos;ve also done a bit of frontend work when necessary, and it absolutely is not my forte, as is evident by this website&apos;s simple, and crappy design.
       </DefaultBody>
       <DefaultBody>
-        A few people might also recognize me from my brief stints in competitive Overwatch, where I mainly played tank heroes for a few teams including UC San Diego's 2021-2022 varsity team (aka "UCSD Gold") and reached Top 500 on the North American leaderboard a few times.
-        If you are one of those people, hi! :D, it's been a while.
+        A few people might also recognize me from my brief stints in competitive Overwatch, where I mainly played tank heroes for a few teams including UC San Diego&apos;s 2021-2022 varsity team (aka &quot;UCSD Gold&quot;) and reached Top 500 on the North American leaderboard a few times.
+        If you are one of those people, hi! :D, it&apos;s been a while.
       </DefaultBody>
       <DefaultBody>
         In my free time I sometimes still play some shooter games, chess, gym, care for my pet budgies, and of course, farm chickens (for eggs).
       </DefaultBody>
       <DefaultBody>
-        After some layoffs and rescinded offers, I've decided to use my savings to start my own chicken farm near Auckland, New Zealand, as the human body simply isn't built to sit in front of a computer all day.
-        If you happen to be in the Auckland area, feel free to contact me for some affordable, ethically sourced, organic chicken eggs :). We've also recently expanded our operations under a new banner: Eggs4Less!
+        After some layoffs and rescinded offers, I&apos;ve decided to use my savings to start my own chicken farm near Auckland, New Zealand, as the human body simply isn&apos;t built to sit in front of a computer all day.
+        If you happen to be in the Auckland area, feel free to contact me for some affordable, ethically sourced, organic chicken eggs :). We&apos;ve also recently expanded our operations under a new banner: Eggs4Less!
       </DefaultBody>
     </div>
   );

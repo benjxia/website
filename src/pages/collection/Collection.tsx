@@ -1,4 +1,4 @@
-import { JSX } from 'react';
+import React, { JSX } from 'react';
 
 import { DefaultBody } from '../../components/text/Text';
 

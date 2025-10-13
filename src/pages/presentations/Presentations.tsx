@@ -1,4 +1,4 @@
-import { JSX, ReactNode } from 'react';
+import React, { JSX, ReactNode } from 'react';
 
 import { DefaultBody } from '../../components/text/Text';
 
@@ -106,8 +106,8 @@ function Presentations(): JSX.Element {
   return (
     <Layout title="presentations">
       <DefaultBody>
-        An archive of some of the presentations (slides) I've done over the years. This collection is incomplete as it excludes confidential presentations from work, and many whiteboard-only technical talks.
-        Some formatting may also be whack as I've exported them all to pdf's.
+        An archive of some of the presentations (slides) I&apos;ve done over the years. This collection is incomplete as it excludes confidential presentations from work, and many whiteboard-only technical talks.
+        Some formatting may also be whack as I&apos;ve exported them all to pdf&apos;s.
       </DefaultBody>
 
       {PRESENTATIONS.map((presentation) => (

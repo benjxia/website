@@ -1,6 +1,9 @@
 import React, { JSX, useRef, useEffect } from 'react';
 import { GridRenderer } from './background-render';
 
+const START_TIME = new Date();
+START_TIME.setHours(0, 0, 0, 0);
+
 function BackgroundTiles(): JSX.Element {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const gridRef = useRef<GridRenderer>(null);
@@ -8,7 +11,7 @@ function BackgroundTiles(): JSX.Element {
 
     useEffect(() => {
       const canvas = canvasRef.current;
-      const startTime = Date.now()
+
       if (!canvas) return;
 
       const gl: WebGL2RenderingContext | null = canvas.getContext("webgl2");
@@ -23,7 +26,7 @@ function BackgroundTiles(): JSX.Element {
 
           // Changing canvas size completely wipes our canvas, re-render to avoid flickering
           const mousePos = mousePosRef.current;
-          gridRef.current?.render(mousePos.x, mousePos.y, (Date.now() - startTime) / 1000);
+          gridRef.current?.render(mousePos.x, mousePos.y, (Date.now() - START_TIME.getTime()) / 1000);
       };
       resize();
       window.addEventListener("resize", resize);
@@ -49,7 +52,7 @@ function BackgroundTiles(): JSX.Element {
           lastFrameTime = time;
 
           const mousePos = mousePosRef.current;
-          gridRef.current?.render(mousePos.x, mousePos.y, (Date.now() - startTime) / 1000);
+          gridRef.current?.render(mousePos.x, mousePos.y, (Date.now() - START_TIME.getTime()) / 1000);
         }
         requestAnimationFrame(draw);
       };
