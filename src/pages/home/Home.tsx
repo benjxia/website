@@ -9,30 +9,30 @@ import PageWrapper from '../../components/wrappers/Wrapper';
 const TITLE_TEXT = 'benjxia';
 
 // Avoid making each string too long or it'll overflow off the page on mobile
-const TEXT_LIST_SUBTITLE = [
-  "i sometimes write readable code",
-  "code monke",
-  "not completely useless at...",
-  "computer vision",
-  "3d graphics",
-  "the machine ain't learnin'",
-  "operating systems",
-  "(creating) race conditions",
-  "distributed systems",
-  "frontend stuff (against my will)",
-  "sleeping for 12 hours",
-  "out of ideas, looping this text"
-];
-
 // const TEXT_LIST_SUBTITLE = [
-//   "fulltime chicken farmer",
-//   "i sometimes wrote readable code",
-//   "rage quit computer science",
-//   "escaped the united states",
-//   "now farmin' chickens elsewhere",
-//   "reject technology, touch grass",
-//   "birds are very fluffy",
+//   "i sometimes write readable code",
+//   "code monke",
+//   "not completely useless at...",
+//   "computer vision",
+//   "3d graphics",
+//   "the machine ain't learnin'",
+//   "operating systems",
+//   "(creating) race conditions",
+//   "distributed systems",
+//   "frontend stuff (against my will)",
+//   "sleeping for 12 hours",
+//   "out of ideas, looping this text"
 // ];
+
+const TEXT_LIST_SUBTITLE = [
+  "fulltime chicken farmer",
+  "i sometimes wrote readable code",
+  "rage quit computer science",
+  "escaped the united states",
+  "now farmin' chickens elsewhere",
+  "reject technology, touch grass",
+  "birds are very fluffy",
+];
 
 
 function Home(): JSX.Element {
