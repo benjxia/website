@@ -9,7 +9,8 @@
     display: inline-block;
 
     /* Override normal text to subtly shift colors according to background */
-    mix-blend-mode: difference;
+    /* Disabled because it looks weird on safari */
+    /* mix-blend-mode: difference; */
 
     padding-left: 20px;
     padding-right: 20px;
@@ -20,7 +21,7 @@
     border-radius: 25px;
 
     backdrop-filter: blur(8px) brightness(0.8);
-    -webkit-backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .summary {
@@ -49,7 +50,8 @@
 
     overflow: visible;
 
-    mix-blend-mode: difference;
+    /* Disabled because it looks weird on safari */
+    /* mix-blend-mode: difference; */
     position: relative;
 
     width: 100%;
@@ -57,7 +59,7 @@
     border-radius: 25px;
 
     backdrop-filter: blur(8px) brightness(0.8);
-    -webkit-backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(8px);
 
     padding-top: 10px;
     padding-bottom: 10px;
@@ -121,7 +123,6 @@
 }
 
 .face-placeholder {
-    /* background-color: var(--colors-secondary); */
     opacity: 0.5;
     animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) infinite;
 }
