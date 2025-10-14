@@ -1,4 +1,4 @@
-import React, { JSX, useState, ReactNode } from 'react';
+import React, { JSX, useState } from 'react';
 
 import Layout from '../../components/layout/Layout';
 import { DefaultBody } from '../../components/text/Text';
@@ -7,21 +7,9 @@ import './About.css';
 
 import ugly from './img/IMG_4099.png'
 import useThemeColors from '../../hooks/theme';
-import usePageTitle from '../../hooks/page-title';
+import usePageTitle from '../../hooks/pageTitle';
 
 const ABOUT_PAGE_TITLE = 'about me :)';
-
-interface SummaryTextProps {
-  children: ReactNode;
-}
-
-function SummaryText({children}: SummaryTextProps): JSX.Element {
-  return (
-    <p className='summary-text'>
-      {children}
-    </p>
-  );
-}
 
 function Summary(): JSX.Element {
   const [imageLoaded, setImageLoad] = useState<boolean>(false);
@@ -39,20 +27,22 @@ function Summary(): JSX.Element {
         style={imageLoaded ? {} : {display: 'none'}}
         onLoad={() => setImageLoad(true)}
       />
-      <SummaryText>
-        Benjamin Xia//夏博伦
-        <br/>
-        <span>me</span>&#64;<span>benjxia.dev</span>
-        <br/>
-        <br/>
-        San Diego<br/>
-        ↓<br/>
-        South Bay<br/>
-        ↓<br/>
-        San Diego<br/>
-        ↓<br/>
-        Auckland
-      </SummaryText>
+      <div className='summary-text'>
+        <DefaultBody noSelect>
+          Benjamin Xia//夏博伦
+          <br/>
+          <span>me</span>&#64;<span>benjxia.dev</span>
+          <br/>
+          <br/>
+          San Diego<br/>
+          ↓<br/>
+          South Bay<br/>
+          ↓<br/>
+          San Diego<br/>
+          ↓<br/>
+          Auckland
+        </DefaultBody>
+      </div>
     </div>
   );
 }

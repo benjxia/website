@@ -3,7 +3,7 @@ import React, { JSX, ReactNode } from 'react';
 import { DefaultBody } from '../../components/text/Text';
 
 import Layout from '../../components/layout/Layout';
-import usePageTitle from '../../hooks/page-title';
+import usePageTitle from '../../hooks/pageTitle';
 
 import cse110 from './slides/cse_110_pitch.pdf';
 import cse151b from './slides/CSE_151B_Final_Presentation.pdf';

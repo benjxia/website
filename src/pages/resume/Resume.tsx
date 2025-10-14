@@ -6,7 +6,7 @@ import { DefaultBody } from '../../components/text/Text';
 import resumePDF from './assets/Redacted_Benjamin_Xia_Resume.pdf';
 // const resumePDF = '';
 
-import usePageTitle from '../../hooks/page-title';
+import usePageTitle from '../../hooks/pageTitle';
 
 const RESUME_PAGE_TITLE = 'résumé';
 

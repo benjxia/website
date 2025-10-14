@@ -3,7 +3,7 @@ import React, { JSX } from 'react';
 import { DefaultBody } from '../../components/text/Text';
 
 import Layout from '../../components/layout/Layout';
-import usePageTitle from '../../hooks/page-title';
+import usePageTitle from '../../hooks/pageTitle';
 
 import './Collection.css'
 

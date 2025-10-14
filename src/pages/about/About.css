@@ -29,32 +29,19 @@
     width: max(25%, 120px);
     height: 100%;
     margin-right: 5%;
-    display: inline-block;
 
+    display: flex;
+    flex-direction: column;
     flex-shrink: 0;
 }
 
 .summary-text {
-    /* Disable cursor selection on text */
-    pointer-events: none;
-    user-select: none;
-
     text-align: center;
-    width: 100%;
-
-    font-size: 16px;
-    font-family: monospace;
-    font-weight: bold;
-    color: white;
-    line-height: 1;
 
     overflow: visible;
 
-    /* Disabled because it looks weird on safari */
-    /* mix-blend-mode: difference; */
     position: relative;
 
-    width: 100%;
     background-color: rgba(0, 0, 0, 0);
     border-radius: 25px;
 
@@ -77,43 +64,8 @@
 
     aspect-ratio: initial;
     border-radius: 25px;
-}
 
-/* Low width screens */
-@media (max-width: 1000px) {
-    .summary {
-        width: 100%;
-        height: fit-content;
-        margin-right: 0;
-
-        align-items: center;
-
-        justify-content: center;
-
-        display: block;
-    }
-
-    .face {
-        height: 400px;
-        object-position: 50% 15%;
-
-        margin-bottom: 10px;
-    }
-
-    .about-page-wrapper {
-        flex-direction: column;
-    }
-
-    .summary-text {
-        margin-top: 0;
-        margin-bottom: 0;
-        display: block;
-    }
-
-    .about-body-wrapper {
-        display: block;
-        margin-top: 10px;
-    }
+    margin-bottom: 10px;
 }
 
 .face-image {
@@ -130,4 +82,35 @@
 @keyframes fade {
   0%,100% { background-color: var(--colors-primary) }
   50% { background-color: var(--colors-secondary) }
+}
+
+/* Low width screens */
+@media (max-width: 1000px) {
+    .summary {
+        width: 100%;
+        height: fit-content;
+        margin-right: 0;
+        flex-shrink: unset;
+
+        /* Disable margin collapsing between adjacent components */
+        display: flex;
+    }
+
+    .face {
+        height: 400px;
+        object-position: 50% 15%;
+    }
+
+    .about-page-wrapper {
+        flex-direction: column;
+    }
+
+    .summary-text {
+        display: block;
+    }
+
+    .about-body-wrapper {
+        display: block;
+        margin-top: 10px;
+    }
 }

@@ -1,5 +1,5 @@
 import React, { JSX, useRef, useEffect } from 'react';
-import { GridRenderer } from './background-render';
+import { GridRenderer } from './backgroundRender';
 
 const START_TIME = new Date();
 START_TIME.setHours(0, 0, 0, 0);
