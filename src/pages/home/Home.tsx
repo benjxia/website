@@ -40,12 +40,21 @@ function Home(): JSX.Element {
 
   const HomeContent = (
     <header className="Home-header">
-      <div style={{height: '2em', marginBottom: '2em'}}>
-        <TypingText style={{
-            fontSize: 48,
-        }} text={TITLE_TEXT} speed={50} callback={setDisplaySubtitle} />
-      </div>
-      <CycleTypingText text={TEXT_LIST_SUBTITLE} speed={25} pause={!displayBody} />
+      <TypingText style={{
+          fontSize: '48px',
+          lineHeight: '48px',
+          margin: 0,
+      }} text={TITLE_TEXT} speed={50} callback={setDisplaySubtitle} hideCarat />
+      <CycleTypingText
+        text={TEXT_LIST_SUBTITLE}
+        speed={25} pause={!displayBody}
+        style={{
+          display: 'block',
+          fontSize: 'min(5vw, 36px)',
+          lineHeight: '36px',
+          height: '36px',
+          margin: '36px',
+      }}/>
       <Column>
         <RedirectButton text='the collection' destination='/collection' />
         {/* <RedirectButton text='presentations' destination='/presentations' /> */}

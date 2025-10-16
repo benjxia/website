@@ -14,50 +14,33 @@
   font-family: monospace;
   font-weight: bold;
   color: white;
-  font-size: min(5vw, 36px);
-  line-height: 1;
+  font-size: 24px;
+  line-height: 24px;
 
   white-space: nowrap;
   display: block;
   overflow: visible;
 
   position: relative;
+  height: auto;
   width: fit-content;
-  height: min(5vw, 36px);
-
-  margin-top: min(5vw, 36px);
 
   pointer-events: none;
   user-select: none;
 }
 
-.typewriter::after {
+.typewriter-blinker {
   content: '';
   display: inline-block;
   width: 0.25em;
-  height: 1em;
-  vertical-align: top;
+  height: 24px;
+  /* We don't use vertical-align: middle here because https://stackoverflow.com/questions/65241040/vertical-align-is-off-center-slightly */
+  top: 50%;
+  transform: translateY(-50%);
+
   background-color: white;
   position: absolute;
-  top: 0;
-
   animation: blink-caret 0.75s step-end infinite;
-}
-
-.typewriter.done {
-  font-family: monospace;
-  white-space: nowrap;
-  display: block;
-  overflow: visible;
-  font-size: 1.5rem;
-  line-height: 1;
-  position: relative;
-  width: fit-content;
-}
-
-.typewriter.done::after {
-  content: none;
-  animation: none;
 }
 
 @keyframes blink-caret {

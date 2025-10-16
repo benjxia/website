@@ -10,12 +10,12 @@ interface TextProps {
 
 function DefaultText({children, style={}, noSelect=true}: TextProps): JSX.Element {
   return (
-    <p className='text' style={{
+    <div className='text' style={{
       ...(noSelect && { pointerEvents: 'none', userSelect: 'none' }),
       ...style,
     }}>
       {children}
-    </p>
+    </div>
   );
 }
 
@@ -45,7 +45,7 @@ interface TypingTextProps {
   hideCarat?: boolean; // Whether to hide the carat upon text completion
 }
 
-function TypingText({ text, style, speed = 50 , callback, hideCarat = true }: TypingTextProps): JSX.Element {
+function TypingText({ text, style, speed = 50 , callback, hideCarat = false }: TypingTextProps): JSX.Element {
   const [visibleText, setVisibleText] = useState<string>('');
   useEffect(() => {
     let i = 0;
@@ -61,9 +61,12 @@ function TypingText({ text, style, speed = 50 , callback, hideCarat = true }: Ty
   }, [text, speed, callback]);
 
   return (
-    <p className={`typewriter${hideCarat && visibleText.length === text.length ? ' done' : ''}`} style={style}>
+    <div className={`typewriter`} style={style}>
       {visibleText || '\u200B'}
-    </p>
+      {/* We don't use element::after in css here to let us override the font size https://stackoverflow.com/questions/28269669/css-pseudo-elements-in-react */}
+      {(!hideCarat || (hideCarat && visibleText.length < text.length)) &&
+      <div className='typewriter-blinker' style={{height: style?.fontSize, position: 'absolute'}}></div>}
+    </div>
   );
 }
 
@@ -112,11 +115,12 @@ function CycleTypingText({ text, style, speed = 50, pause = false }: CycleTyping
     return () => clearInterval(interval);
   }, [deleteText, text, stringIdx, speed, pause]);
 
-
   return (
-    <p className="typewriter" style={style}>
+    <div className="typewriter" style={style}>
       {visibleText || '\u200B'}
-    </p>
+      {/* We don't use element::after in css here to let us override the font size https://stackoverflow.com/questions/28269669/css-pseudo-elements-in-react */}
+      <div className='typewriter-blinker' style={{height: style ? style.fontSize : '24px', position: 'absolute'}}></div>
+    </div>
   );
 }
 

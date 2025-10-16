@@ -16,7 +16,7 @@ function Layout({title, children}: LayoutProps): JSX.Element {
       <header className='Layout-header'>
         <div className='Layout-div' style={{position: 'relative'}}>
           <HomeButton />
-          <TypingText text={title} hideCarat={false} />
+          <TypingText text={title} style={{fontSize: '24px', marginTop: '24px', marginBottom: '24px'}}/>
           {children}
         </div>
       </header>
