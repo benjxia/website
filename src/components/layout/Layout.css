@@ -24,4 +24,9 @@
   white-space: normal;
 
   flex-direction: vertical;
+
+  /* Disable margin collapsing between adjacent components */
+  /* https://stackoverflow.com/questions/19718634/how-to-disable-margin-collapsing */
+  /* display: flex fucks up the styling here for some reason */
+  display: grid;
 }

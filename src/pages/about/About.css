@@ -2,6 +2,16 @@
     display: flex;
     flex-direction: row;
     /* Turns into flex-direction: column for smaller screen widths */
+    /*
+    I don't have a formal enough background in graphic design to describe this with the
+    proper terminology, but the page header ("about me") looks like it's slightly off center even though
+    it's margins are correct, and it's vertically aligned between the hoem button and page contents.
+
+    My guess is that it's because the text, visually speaking, occupies more of the bottom half than the top half of its own height
+
+    This extra margin makes it "feel" more centered.
+    */
+    margin-top: 10px;
 }
 
 .about-body-wrapper {
@@ -93,6 +103,7 @@
         flex-shrink: unset;
 
         /* Disable margin collapsing between adjacent components */
+        /* https://stackoverflow.com/questions/19718634/how-to-disable-margin-collapsing */
         display: flex;
     }
 
