@@ -10,12 +10,12 @@ interface TextProps {
 
 function DefaultText({children, style={}, noSelect=true}: TextProps): JSX.Element {
   return (
-    <div className='text' style={{
+    <p className='text' style={{
       ...(noSelect && { pointerEvents: 'none', userSelect: 'none' }),
       ...style,
     }}>
       {children}
-    </div>
+    </p>
   );
 }
 
