@@ -16,7 +16,10 @@
 
 .about-body-wrapper {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+
+    height: fit-content;
 
     /* Override normal text to subtly shift colors according to background */
     /* Disabled because it looks weird on safari */
@@ -30,12 +33,21 @@
     background-color: rgba(0, 0, 0, 0);
     border-radius: 25px;
 
+    align-items: center;
+    justify-content: center;
+
     backdrop-filter: blur(8px) brightness(0.8);
     -webkit-backdrop-filter: blur(8px);
 }
 
+.summary-content {
+    position: sticky;
+    top: 24px;
+}
+
 .summary {
-    position: relative;
+    overflow: visible;
+
     width: max(25%, 120px);
     height: 100%;
     margin-right: 5%;
@@ -121,7 +133,8 @@
     }
 
     .about-body-wrapper {
-        display: block;
+        display: flex;
+        flex-direction: column;
         margin-top: 10px;
     }
 }

@@ -14,7 +14,7 @@ function RedirectButton({text, destination}: RedirectButtonProps): JSX.Element {
   useThemeColors();
 
   return (
-    <Link className='RedirectButton' to={destination || '/'} viewTransition>
+    <Link className='RedirectButton' to={destination || '/'}>
       <span data-nosnippet>
         {text}
       </span>
@@ -26,7 +26,7 @@ function HomeButton(): JSX.Element {
   useThemeColors();
 
   return (
-    <Link className='HomeButton' to='/' viewTransition>
+    <Link className='HomeButton' to='/'>
       <nav className="HomeButton-text">benjxia</nav>
     </Link>
   );

@@ -1,4 +1,4 @@
-import React, { JSX } from 'react';
+import React, { JSX, useState } from 'react';
 import { RouterProvider } from 'react-router';
 
 import {
@@ -9,6 +9,8 @@ import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Collection from './pages/collection/Collection';
 import BackgroundTiles from './components/background/BackgroundTiles';
+
+import { GlEnabledContext } from './theme/GlEnabledContext';
 
 const router = createBrowserRouter([
   {
@@ -26,10 +28,13 @@ const router = createBrowserRouter([
 ]);
 
 function App(): JSX.Element {
+  const [glEnabled, setGlEnabled] = useState(false);
   return (
     <>
-      <BackgroundTiles />
-      <RouterProvider router={router} />
+      <BackgroundTiles setGlEnabled={setGlEnabled} />
+      <GlEnabledContext value={glEnabled}>
+        <RouterProvider router={router} />
+      </GlEnabledContext>
     </>
   );
 }

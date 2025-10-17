@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { COLORS } from "../colors";
+import { COLORS } from "../theme/colors";
 
 function useThemeColors() {
     useEffect(() => {

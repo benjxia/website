@@ -4,8 +4,10 @@ import Layout from '../../components/layout/Layout';
 import { DefaultBody } from '../../components/text/Text';
 
 import './About.css';
+import '../../theme/transition.css';
 
-import ugly from './img/IMG_4099.png'
+import ugly from './img/IMG_4099.png';
+import chicken from './img/chicken.jpg';
 import useThemeColors from '../../hooks/theme';
 import usePageTitle from '../../hooks/pageTitle';
 
@@ -18,30 +20,33 @@ function Summary(): JSX.Element {
 
   return (
     <div className='summary'>
-      {/* Image placeholder */}
-      {!imageLoaded && <div className='face face-placeholder'></div>}
-      <img
-        className='face face-image'
-        src={ugly}
-        alt='there should be an ugly face here'
-        style={imageLoaded ? {} : {display: 'none'}}
-        onLoad={() => setImageLoad(true)}
-      />
-      <div className='summary-text'>
-        <DefaultBody noSelect>
-          Benjamin Xia//夏博伦
-          <br/>
-          <span>me</span>&#64;<span>benjxia.dev</span>
-          <br/>
-          <br/>
-          San Diego<br/>
-          ↓<br/>
-          South Bay<br/>
-          ↓<br/>
-          San Diego<br/>
-          ↓<br/>
-          Auckland
-        </DefaultBody>
+      <div className='summary-content'>
+        <div className='transition'>
+          {!imageLoaded && <div className='face face-placeholder'></div>}
+          <img
+            className='face face-image'
+            src={ugly}
+            alt='there should be an ugly face here'
+            style={imageLoaded ? {} : {display: 'none'}}
+            onLoad={() => setImageLoad(true)}
+          />
+        </div>
+        <div className='summary-text transition'>
+          <DefaultBody noSelect>
+            Benjamin Xia//夏博伦
+            <br/>
+            <span>me</span>&#64;<span>benjxia.dev</span>
+            <br/>
+            <br/>
+            San Diego<br/>
+            ↓<br/>
+            South Bay<br/>
+            ↓<br/>
+            San Diego<br/>
+            ↓<br/>
+            Auckland
+          </DefaultBody>
+        </div>
       </div>
     </div>
   );
@@ -49,9 +54,10 @@ function Summary(): JSX.Element {
 
 function Body(): JSX.Element {
   return (
-    <div className="about-body-wrapper">
+    <div className="about-body-wrapper transition">
+      {/* TODO: fix text alignment for top row */}
       <DefaultBody>
-        Pretend that I&apos;m creative enough to write something more than a generic &quot;about me&quot; section. I wrote this when I was tired.
+        (Probably) The one and only CS student turned chicken farmer.
       </DefaultBody>
       <DefaultBody>
         I graduated from Westview High School in 2021, and from UC San Diego with a Bachelor&apos;s in Computer Science in 2024, and a Master&apos;s in Computer Science in 2025. My main focuses have included a combination of
@@ -69,6 +75,15 @@ function Body(): JSX.Element {
         After some layoffs and rescinded offers, I&apos;ve decided to use my savings to start my own chicken farm near Auckland, New Zealand, as the human body simply isn&apos;t built to sit in front of a computer all day.
         If you happen to be in the Auckland area, feel free to contact me for some affordable, ethically sourced, organic chicken eggs :). We&apos;ve also recently expanded our operations under a new banner: Eggs4Less!
       </DefaultBody>
+      <img
+        src={chicken}
+        style={{
+          width: '50%',
+          height: 'auto',
+          borderRadius: '25px',
+        }}
+      />
+
     </div>
   );
 }

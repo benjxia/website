@@ -1,10 +1,13 @@
-import React, { JSX, useState } from 'react';
+import React, { JSX, useState, useContext } from 'react';
 
 import './Home.css';
-import { TypingText, CycleTypingText } from '../../components/text/Text';
+import '../../theme/transition.css';
+import { TypingText, CycleTypingText} from '../../components/text/Text';
 import { IconButton, RedirectButton } from '../../components/button/Button';
 import { Row, Column } from '../../components/format/Format';
 import PageWrapper from '../../components/wrappers/Wrapper';
+
+import { GlEnabledContext } from '../../theme/GlEnabledContext';
 
 const TITLE_TEXT = 'benjxia';
 
@@ -34,19 +37,26 @@ const TEXT_LIST_SUBTITLE = [
   "birds are very fluffy",
 ];
 
+const GL_DISABLED_TEXT_LIST_SUBTITLE = [
+  "pls enable hardware acceleration",
+  "in your browser",
+  "you can't see the background :("
+]
+
 
 function Home(): JSX.Element {
   const [displayBody, setDisplaySubtitle] = useState<boolean>(false);
+  const glEnabled = useContext(GlEnabledContext);
 
   const HomeContent = (
-    <header className="Home-header">
+    <header className="Home-header transition">
       <TypingText style={{
           fontSize: '48px',
           lineHeight: '48px',
           margin: 0,
       }} text={TITLE_TEXT} speed={50} callback={setDisplaySubtitle} hideCarat />
       <CycleTypingText
-        text={TEXT_LIST_SUBTITLE}
+        text={glEnabled ? TEXT_LIST_SUBTITLE : GL_DISABLED_TEXT_LIST_SUBTITLE}
         speed={25} pause={!displayBody}
         style={{
           display: 'block',

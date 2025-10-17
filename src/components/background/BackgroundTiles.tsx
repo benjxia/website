@@ -4,7 +4,11 @@ import { GridRenderer } from './backgroundRender';
 const START_TIME = new Date();
 START_TIME.setHours(0, 0, 0, 0);
 
-function BackgroundTiles(): JSX.Element {
+interface BackgroundTilesProps {
+  setGlEnabled: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function BackgroundTiles({setGlEnabled}: BackgroundTilesProps): JSX.Element {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const gridRef = useRef<GridRenderer>(null);
     const mousePosRef = useRef({ x: 0, y: 0 });
@@ -15,7 +19,13 @@ function BackgroundTiles(): JSX.Element {
       if (!canvas) return;
 
       const gl: WebGL2RenderingContext | null = canvas.getContext("webgl2");
-      if (!gl) return;
+      if (gl) {
+        setGlEnabled(true);
+      } else {
+        setGlEnabled(false);
+        console.log("WebGL is disabled, this website will look ugly :(");
+        return;
+      }
 
       // Set canvas size to full window
       const resize = () => {
@@ -28,6 +38,7 @@ function BackgroundTiles(): JSX.Element {
           const mousePos = mousePosRef.current;
           gridRef.current?.render(mousePos.x, mousePos.y, (Date.now() - START_TIME.getTime()) / 1000);
       };
+
       resize();
       window.addEventListener("resize", resize);
 
@@ -69,6 +80,7 @@ function BackgroundTiles(): JSX.Element {
     <canvas
       ref={canvasRef}
       style={{
+        backgroundColor: 'black', /* Default, if no gl context */
         position: "fixed",
         top: 0,
         left: 0,

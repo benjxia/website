@@ -1,0 +1,21 @@
+/**
+We manually define which components and shit will have a load in animation
+because it creates a new stacking context https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context
+This allows us to have effects such as background blur and still have elements be affected by load in animations
+If an element should blur the background, none of its ancestors should have created a new stacking context separate from the background
+*/
+.transition {
+  will-change: transform;
+  animation: load-in 0.5s forwards;
+}
+
+@keyframes load-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
