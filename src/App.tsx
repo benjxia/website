@@ -1,9 +1,7 @@
 import React, { JSX, useState } from 'react';
 import { RouterProvider } from 'react-router';
 
-import {
-  createBrowserRouter,
-} from "react-router";
+import { createBrowserRouter } from 'react-router';
 
 import Home from './pages/home/Home';
 import About from './pages/about/About';
@@ -14,17 +12,17 @@ import { GlEnabledContext } from './theme/GlEnabledContext';
 
 const router = createBrowserRouter([
   {
-    path: "*",
+    path: '*',
     Component: Home,
   },
   {
-    path: "/collection",
+    path: '/collection',
     Component: Collection,
   },
   {
-    path: "/about",
+    path: '/about',
     Component: About,
-  }
+  },
 ]);
 
 function App(): JSX.Element {

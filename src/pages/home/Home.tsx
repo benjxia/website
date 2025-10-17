@@ -2,7 +2,7 @@ import React, { JSX, useState, useContext } from 'react';
 
 import './Home.css';
 import '../../theme/transition.css';
-import { TypingText, CycleTypingText} from '../../components/text/Text';
+import { TypingText, CycleTypingText } from '../../components/text/Text';
 import { IconButton, RedirectButton } from '../../components/button/Button';
 import { Row, Column } from '../../components/format/Format';
 import PageWrapper from '../../components/wrappers/Wrapper';
@@ -28,21 +28,20 @@ const TITLE_TEXT = 'benjxia';
 // ];
 
 const TEXT_LIST_SUBTITLE = [
-  "fulltime chicken farmer",
-  "i sometimes wrote readable code",
-  "rage quit computer science",
-  "escaped the united states",
+  'fulltime chicken farmer',
+  'i sometimes wrote readable code',
+  'rage quit computer science',
+  'escaped the united states',
   "now farmin' chickens elsewhere",
-  "reject technology, touch grass",
-  "birds are very fluffy",
+  'reject technology, touch grass',
+  'birds are very fluffy',
 ];
 
 const GL_DISABLED_TEXT_LIST_SUBTITLE = [
-  "pls enable hardware acceleration",
-  "in your browser",
-  "you can't see the background :("
-]
-
+  'pls enable hardware acceleration',
+  'in your browser',
+  "you can't see the background :(",
+];
 
 function Home(): JSX.Element {
   const [displayBody, setDisplaySubtitle] = useState<boolean>(false);
@@ -50,40 +49,53 @@ function Home(): JSX.Element {
 
   const HomeContent = (
     <header className="Home-header transition">
-      <TypingText style={{
+      <TypingText
+        style={{
           fontSize: '48px',
           lineHeight: '48px',
           margin: 0,
-      }} text={TITLE_TEXT} speed={50} callback={setDisplaySubtitle} hideCarat />
+        }}
+        text={TITLE_TEXT}
+        speed={50}
+        callback={setDisplaySubtitle}
+        hideCarat
+      />
       <CycleTypingText
         text={glEnabled ? TEXT_LIST_SUBTITLE : GL_DISABLED_TEXT_LIST_SUBTITLE}
-        speed={25} pause={!displayBody}
+        speed={25}
+        pause={!displayBody}
         style={{
           display: 'block',
           fontSize: 'min(5vw, 36px)',
           lineHeight: '36px',
           height: '36px',
           margin: '36px',
-      }}/>
+        }}
+      />
       <Column>
-        <RedirectButton text='the collection' destination='/collection' />
+        <RedirectButton text="the collection" destination="/collection" />
         {/* <RedirectButton text='presentations' destination='/presentations' /> */}
         {/* <RedirectButton text='résumé' destination='/résumé' /> */}
-        <RedirectButton text='about' destination='/about'/>
+        <RedirectButton text="about" destination="/about" />
       </Column>
       <Row>
-        <IconButton iconId='fa-brands fa-github' linkAddr='https://github.com/benjxia'/>
-        <IconButton iconId='fa-brands fa-linkedin' linkAddr='https://www.linkedin.com/in/benjxia/'/>
-        <IconButton iconId='fa-brands fa-instagram' linkAddr='https://www.instagram.com/benjxia/'/>
+        <IconButton
+          iconId="fa-brands fa-github"
+          linkAddr="https://github.com/benjxia"
+        />
+        <IconButton
+          iconId="fa-brands fa-linkedin"
+          linkAddr="https://www.linkedin.com/in/benjxia/"
+        />
+        <IconButton
+          iconId="fa-brands fa-instagram"
+          linkAddr="https://www.instagram.com/benjxia/"
+        />
       </Row>
     </header>
   );
 
-  return (
-    <PageWrapper>
-      {HomeContent}
-    </PageWrapper>
-  );
+  return <PageWrapper>{HomeContent}</PageWrapper>;
 }
 
 export default Home;

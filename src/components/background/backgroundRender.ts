@@ -1,20 +1,14 @@
-import { COLORS_VEC } from "../../theme/colors";
+import { COLORS_VEC } from '../../theme/colors';
 
 // Each tile of the grid will take up 1/20th the min(window width, window height) - and consume the entire canvas
 const GRID_TILE_DIM = 0.05;
 
 // Fullscreen quad
 const QUAD_VERTICES = new Float32Array([
-  -1, -1,
-   1, -1,
-  -1,  1,
-  -1,  1,
-   1, -1,
-   1,  1,
+  -1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1,
 ]);
 
-const VERTEX_SHADER_SOURCE =
-`#version 300 es
+const VERTEX_SHADER_SOURCE = `#version 300 es
 in vec2 a_position;
 out vec2 v_uv;
 void main() {
@@ -25,8 +19,7 @@ void main() {
 }
 `;
 
-const FRAGMENT_SHADER_SOURCE =
-`#version 300 es
+const FRAGMENT_SHADER_SOURCE = `#version 300 es
 precision highp float;
 
 in vec2 v_uv;
@@ -140,113 +133,129 @@ void main() {
 `;
 
 class GridRenderer {
-    width: number;
-    height: number;
-    gridX: number;
-    gridY: number;
+  width: number;
+  height: number;
+  gridX: number;
+  gridY: number;
 
-    vertices: Float32Array;
-    vao: WebGLVertexArrayObject;
-    vbo: WebGLBuffer;
+  vertices: Float32Array;
+  vao: WebGLVertexArrayObject;
+  vbo: WebGLBuffer;
 
-    gl: WebGL2RenderingContext;
-    program: WebGLProgram;
+  gl: WebGL2RenderingContext;
+  program: WebGLProgram;
 
-    constructor(gl: WebGL2RenderingContext, windowWidth: number, windowHeight: number) {
-        this.width = windowWidth;
-        this.height = windowHeight;
-        [this.gridX, this.gridY] = this.calculateGridSize();
+  constructor(
+    gl: WebGL2RenderingContext,
+    windowWidth: number,
+    windowHeight: number
+  ) {
+    this.width = windowWidth;
+    this.height = windowHeight;
+    [this.gridX, this.gridY] = this.calculateGridSize();
 
-        this.gl = gl;
-        this.gl.viewport(0, 0, this.width, this.height);
+    this.gl = gl;
+    this.gl.viewport(0, 0, this.width, this.height);
 
-        this.program = this.initProgram();
+    this.program = this.initProgram();
 
-        this.vertices = QUAD_VERTICES;
+    this.vertices = QUAD_VERTICES;
 
-        this.vao = gl.createVertexArray()!;
-        this.vbo = gl.createBuffer()!;
+    this.vao = gl.createVertexArray()!;
+    this.vbo = gl.createBuffer()!;
 
-        gl.bindVertexArray(this.vao);
-        gl.bindBuffer(gl.ARRAY_BUFFER, this.vbo);
-        gl.bufferData(gl.ARRAY_BUFFER, this.vertices, gl.STATIC_DRAW);
+    gl.bindVertexArray(this.vao);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.vbo);
+    gl.bufferData(gl.ARRAY_BUFFER, this.vertices, gl.STATIC_DRAW);
 
-        const a_position_loc = gl.getAttribLocation(this.program, "a_position");
-        gl.enableVertexAttribArray(a_position_loc);
-        gl.vertexAttribPointer(a_position_loc, 2, gl.FLOAT, false, 0, 0);
+    const a_position_loc = gl.getAttribLocation(this.program, 'a_position');
+    gl.enableVertexAttribArray(a_position_loc);
+    gl.vertexAttribPointer(a_position_loc, 2, gl.FLOAT, false, 0, 0);
 
-        gl.bindVertexArray(null);
+    gl.bindVertexArray(null);
+  }
+
+  private initProgram(): WebGLProgram {
+    const gl = this.gl;
+
+    const vertexShader = gl.createShader(gl.VERTEX_SHADER)!;
+    gl.shaderSource(vertexShader, VERTEX_SHADER_SOURCE);
+    gl.compileShader(vertexShader);
+    if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
+      console.error('Vertex Shader Error:', gl.getShaderInfoLog(vertexShader));
     }
 
-    private initProgram(): WebGLProgram {
-        const gl = this.gl;
-
-        const vertexShader = gl.createShader(gl.VERTEX_SHADER)!;
-        gl.shaderSource(vertexShader, VERTEX_SHADER_SOURCE);
-        gl.compileShader(vertexShader);
-        if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
-            console.error("Vertex Shader Error:", gl.getShaderInfoLog(vertexShader));
-        }
-
-        const fragShader = gl.createShader(gl.FRAGMENT_SHADER)!;
-        gl.shaderSource(fragShader, FRAGMENT_SHADER_SOURCE);
-        gl.compileShader(fragShader);
-        if (!gl.getShaderParameter(fragShader, gl.COMPILE_STATUS)) {
-            console.error("Fragment Shader Error:", gl.getShaderInfoLog(fragShader));
-        }
-
-        const program = gl.createProgram()!;
-        gl.attachShader(program, vertexShader);
-        gl.attachShader(program, fragShader);
-        gl.linkProgram(program);
-        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-            console.error("Program Link Error:", gl.getProgramInfoLog(program));
-        }
-
-        return program;
+    const fragShader = gl.createShader(gl.FRAGMENT_SHADER)!;
+    gl.shaderSource(fragShader, FRAGMENT_SHADER_SOURCE);
+    gl.compileShader(fragShader);
+    if (!gl.getShaderParameter(fragShader, gl.COMPILE_STATUS)) {
+      console.error('Fragment Shader Error:', gl.getShaderInfoLog(fragShader));
     }
 
-    private calculateGridSize(): Array<number> {
-        if (this.width < this.height) {
-            return [1.0 / GRID_TILE_DIM, Math.floor((this.height / this.width) / GRID_TILE_DIM)];
-        } else {
-            return [Math.floor((this.width / this.height) / GRID_TILE_DIM), 1.0 / GRID_TILE_DIM]
-        }
+    const program = gl.createProgram()!;
+    gl.attachShader(program, vertexShader);
+    gl.attachShader(program, fragShader);
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      console.error('Program Link Error:', gl.getProgramInfoLog(program));
     }
 
-    public resize(width: number, height: number) {
-        this.width = width;
-        this.height = height;
-        this.gl.viewport(0, 0, this.width, this.height);
-        [this.gridX, this.gridY] = this.calculateGridSize();
+    return program;
+  }
+
+  private calculateGridSize(): Array<number> {
+    if (this.width < this.height) {
+      return [
+        1.0 / GRID_TILE_DIM,
+        Math.floor(this.height / this.width / GRID_TILE_DIM),
+      ];
+    } else {
+      return [
+        Math.floor(this.width / this.height / GRID_TILE_DIM),
+        1.0 / GRID_TILE_DIM,
+      ];
     }
+  }
 
-    public render(mouseX: number, mouseY: number, time: number) {
-        const gl = this.gl;
+  public resize(width: number, height: number) {
+    this.width = width;
+    this.height = height;
+    this.gl.viewport(0, 0, this.width, this.height);
+    [this.gridX, this.gridY] = this.calculateGridSize();
+  }
 
-        gl.useProgram(this.program);
+  public render(mouseX: number, mouseY: number, time: number) {
+    const gl = this.gl;
 
-        // Set uniforms
-        const u_time_loc = gl.getUniformLocation(this.program, "u_time");
-        const u_mouse_loc = gl.getUniformLocation(this.program, "u_mouse");
-        const u_grid_resolution_loc = gl.getUniformLocation(this.program, "u_grid_resolution");
-        const u_resolution_loc = gl.getUniformLocation(this.program, "u_resolution");
+    gl.useProgram(this.program);
 
-        gl.uniform1f(u_time_loc, time);
-        gl.uniform2f(u_mouse_loc, mouseX, mouseY);
-        gl.uniform2f(u_grid_resolution_loc, this.gridX, this.gridY);
-        gl.uniform2f(u_resolution_loc, this.width, this.height);
+    // Set uniforms
+    const u_time_loc = gl.getUniformLocation(this.program, 'u_time');
+    const u_mouse_loc = gl.getUniformLocation(this.program, 'u_mouse');
+    const u_grid_resolution_loc = gl.getUniformLocation(
+      this.program,
+      'u_grid_resolution'
+    );
+    const u_resolution_loc = gl.getUniformLocation(
+      this.program,
+      'u_resolution'
+    );
 
-        // Clear and draw
-        gl.clearColor(0.157, 0.1725, 0.204, 1);
-        gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform1f(u_time_loc, time);
+    gl.uniform2f(u_mouse_loc, mouseX, mouseY);
+    gl.uniform2f(u_grid_resolution_loc, this.gridX, this.gridY);
+    gl.uniform2f(u_resolution_loc, this.width, this.height);
 
-        gl.bindVertexArray(this.vao);
-        gl.drawArrays(gl.TRIANGLES, 0, 6);
-        gl.bindVertexArray(null);
+    // Clear and draw
+    gl.clearColor(0.157, 0.1725, 0.204, 1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
 
-        gl.useProgram(null);
-    }
+    gl.bindVertexArray(this.vao);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    gl.bindVertexArray(null);
+
+    gl.useProgram(null);
+  }
 }
 
 export { GridRenderer };

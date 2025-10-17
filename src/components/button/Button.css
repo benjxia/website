@@ -64,7 +64,7 @@
   text-align: left;
   width: fit-content;
 
-  margin-top: min(5vw, 36px);;
+  margin-top: min(5vw, 36px);
 
   z-index: 1;
 
@@ -131,7 +131,6 @@
   transition: transform 0.5s ease;
 }
 
-.HomeButton:hover .HomeButton-text{
+.HomeButton:hover .HomeButton-text {
   transform: translateX(15%);
 }
-

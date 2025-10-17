@@ -23,65 +23,73 @@ type Presentation = {
   title: string;
   description: string;
   src: string;
-}
+};
 
 const PRESENTATIONS: Presentation[] = [
   {
-    title: "CSE253 Final Presentation",
-    description: "CSE 253 Machine Learning for Music: Final Project - MidiGPT and Latent Diffusion for Music Generation",
-    src: cse253
+    title: 'CSE253 Final Presentation',
+    description:
+      'CSE 253 Machine Learning for Music: Final Project - MidiGPT and Latent Diffusion for Music Generation',
+    src: cse253,
   },
   {
-    title: "CSE 252D Advanced Computer Vision: Final Project",
-    description: "CSE 252D Advanced Computer Vision: Final Project - Optimized Foundation Models for Gaussian Splatting",
-    src: cse252d_fmgs
+    title: 'CSE 252D Advanced Computer Vision: Final Project',
+    description:
+      'CSE 252D Advanced Computer Vision: Final Project - Optimized Foundation Models for Gaussian Splatting',
+    src: cse252d_fmgs,
   },
   {
-    title: "CSE 252D Advanced Computer Vision: SceneScript Discussion",
-    description: "CSE 252D Advanced Computer Vision: SceneScript Discussion",
-    src: cse252d_scenescript
+    title: 'CSE 252D Advanced Computer Vision: SceneScript Discussion',
+    description: 'CSE 252D Advanced Computer Vision: SceneScript Discussion',
+    src: cse252d_scenescript,
   },
   {
-    title: "CSE 290 MLSys Seminar: Alpa",
-    description: "CSE 290 Machine Learning Seminar: Distributed Computation Graph Parallelism with Alpa",
-    src: cse290
+    title: 'CSE 290 MLSys Seminar: Alpa',
+    description:
+      'CSE 290 Machine Learning Seminar: Distributed Computation Graph Parallelism with Alpa',
+    src: cse290,
   },
   {
-    title: "CSE 291 Virtualization/Cloud Computing: Final Project",
-    description: "CSE 291 Virtualization/Cloud Computing Final Project: Cognify for Vision Language Models",
-    src: cse291_cog
+    title: 'CSE 291 Virtualization/Cloud Computing: Final Project',
+    description:
+      'CSE 291 Virtualization/Cloud Computing Final Project: Cognify for Vision Language Models',
+    src: cse291_cog,
   },
   {
-    title: "CSE 291 Virtualization/Cloud Computing: Discussion",
-    description: "CSE 291 Virtualization/Cloud Computing Discussion on LLM inference optimizations",
-    src: cse291_llm
+    title: 'CSE 291 Virtualization/Cloud Computing: Discussion',
+    description:
+      'CSE 291 Virtualization/Cloud Computing Discussion on LLM inference optimizations',
+    src: cse291_llm,
   },
   {
-    title: "CSE 125: Demo",
-    description: "CSE 125 Demo Slides - Four Seasons",
-    src: cse125
+    title: 'CSE 125: Demo',
+    description: 'CSE 125 Demo Slides - Four Seasons',
+    src: cse125,
   },
   {
-    title: "CSE 150B: Week 3 Discussion",
-    description: "CSE 150B: Week 3 Discussion - Minimax/Expectimax. No, I'm not related to Raymond.",
-    src: cse150b
+    title: 'CSE 150B: Week 3 Discussion',
+    description:
+      "CSE 150B: Week 3 Discussion - Minimax/Expectimax. No, I'm not related to Raymond.",
+    src: cse150b,
   },
   {
-    title: "COGS 108 Final Presentation",
-    description: "COGS 108: Data Science - Final Presentation - GPU vs Cryptocurrency Price Analysis",
-    src: cogs108
+    title: 'COGS 108 Final Presentation',
+    description:
+      'COGS 108: Data Science - Final Presentation - GPU vs Cryptocurrency Price Analysis',
+    src: cogs108,
   },
   {
-    title: "CSE 151B Final Presentation",
-    description: "CSE 151B: Deep Learning - Competition Presentation",
-    src: cse151b
+    title: 'CSE 151B Final Presentation',
+    description: 'CSE 151B: Deep Learning - Competition Presentation',
+    src: cse151b,
   },
   {
-    title: "CSE 110 Project Proposal",
-    description: "CSE 110: Software Engineering - Warrantracker Project Proposal",
-    src: cse110
-  }
-]
+    title: 'CSE 110 Project Proposal',
+    description:
+      'CSE 110: Software Engineering - Warrantracker Project Proposal',
+    src: cse110,
+  },
+];
 
 interface SlideEntryProps {
   title: string;
@@ -89,13 +97,16 @@ interface SlideEntryProps {
   src: string;
 }
 
-function SlideEntry({title, children, src}: SlideEntryProps): JSX.Element {
+function SlideEntry({ title, children, src }: SlideEntryProps): JSX.Element {
   return (
     <>
-      <DefaultBody>
-        {children}
-      </DefaultBody>
-      <iframe title={title} src={`${src}#navpanes=0&toolbar=1&statusbar=0`} width="100%" height="800px" />
+      <DefaultBody>{children}</DefaultBody>
+      <iframe
+        title={title}
+        src={`${src}#navpanes=0&toolbar=1&statusbar=0`}
+        width="100%"
+        height="800px"
+      />
     </>
   );
 }
@@ -106,8 +117,11 @@ function Presentations(): JSX.Element {
   return (
     <Layout title="presentations">
       <DefaultBody>
-        An archive of some of the presentations (slides) I&apos;ve done over the years. This collection is incomplete as it excludes confidential presentations from work, and many whiteboard-only technical talks.
-        Some formatting may also be whack as I&apos;ve exported them all to pdf&apos;s.
+        An archive of some of the presentations (slides) I&apos;ve done over the
+        years. This collection is incomplete as it excludes confidential
+        presentations from work, and many whiteboard-only technical talks. Some
+        formatting may also be whack as I&apos;ve exported them all to
+        pdf&apos;s.
       </DefaultBody>
 
       {PRESENTATIONS.map((presentation) => (

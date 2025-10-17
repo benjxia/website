@@ -14,4 +14,6 @@ root.render(
   </React.StrictMode>
 );
 
-console.log("This website's code can be found at https://github.com/benjxia/website");
+console.log(
+  "This website's code can be found at https://github.com/benjxia/website"
+);

@@ -4,17 +4,32 @@ interface ColumnProps {
   children: React.ReactNode | React.ReactNode[];
 }
 
-function Column({children}: ColumnProps): JSX.Element {
+function Column({ children }: ColumnProps): JSX.Element {
   return (
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
       {children}
     </div>
   );
 }
 
-function Row({children}: ColumnProps): JSX.Element {
+function Row({ children }: ColumnProps): JSX.Element {
   return (
-    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '5px'}}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '5px',
+      }}
+    >
       {children}
     </div>
   );

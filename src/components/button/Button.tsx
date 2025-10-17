@@ -1,7 +1,7 @@
 import React, { JSX } from 'react';
 import { Link } from 'react-router';
 
-import './Button.css'
+import './Button.css';
 import useThemeColors from '../../hooks/theme';
 
 interface RedirectButtonProps {
@@ -10,14 +10,15 @@ interface RedirectButtonProps {
   destination?: string;
 }
 
-function RedirectButton({text, destination}: RedirectButtonProps): JSX.Element {
+function RedirectButton({
+  text,
+  destination,
+}: RedirectButtonProps): JSX.Element {
   useThemeColors();
 
   return (
-    <Link className='RedirectButton' to={destination || '/'}>
-      <span data-nosnippet>
-        {text}
-      </span>
+    <Link className="RedirectButton" to={destination || '/'}>
+      <span data-nosnippet>{text}</span>
     </Link>
   );
 }
@@ -26,7 +27,7 @@ function HomeButton(): JSX.Element {
   useThemeColors();
 
   return (
-    <Link className='HomeButton' to='/'>
+    <Link className="HomeButton" to="/">
       <nav className="HomeButton-text">benjxia</nav>
     </Link>
   );
@@ -43,7 +44,11 @@ function IconButton({ iconId, linkAddr }: IconButtonProps): JSX.Element {
     // Or, for the same tab: window.open('https://www.example.com');
   };
   return (
-    <button className='RedirectButton' onClick={handleExternalLink} style={{display: 'inline-block'}}>
+    <button
+      className="RedirectButton"
+      onClick={handleExternalLink}
+      style={{ display: 'inline-block' }}
+    >
       <i className={iconId}></i>
     </button>
   );

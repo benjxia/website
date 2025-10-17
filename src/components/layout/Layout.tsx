@@ -11,14 +11,21 @@ interface LayoutProps {
   children?: React.ReactNode | React.ReactNode[];
 }
 
-function Layout({title, children}: LayoutProps): JSX.Element {
+function Layout({ title, children }: LayoutProps): JSX.Element {
   return (
     <PageWrapper>
-      <header className='Layout-header'>
-        <div className='Layout-div' style={{position: 'relative'}}>
+      <header className="Layout-header">
+        <div className="Layout-div" style={{ position: 'relative' }}>
           <div className="transition">
             <HomeButton />
-            <TypingText text={title} style={{fontSize: '24px', marginTop: '24px', marginBottom: '24px'}}/>
+            <TypingText
+              text={title}
+              style={{
+                fontSize: '24px',
+                marginTop: '24px',
+                marginBottom: '24px',
+              }}
+            />
           </div>
           {children}
         </div>
