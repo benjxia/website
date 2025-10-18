@@ -26,7 +26,7 @@ const router = createBrowserRouter([
 ]);
 
 function App(): JSX.Element {
-  const [glEnabled, setGlEnabled] = useState(false);
+  const [glEnabled, setGlEnabled] = useState<boolean>(false);
   return (
     <>
       <BackgroundTiles setGlEnabled={setGlEnabled} />
