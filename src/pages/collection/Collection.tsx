@@ -1,8 +1,7 @@
 import React, { JSX } from 'react';
 
-import { DefaultBody } from '../../components/text/Text';
+import { DefaultBody, TypingText } from '../../components/text/Text';
 
-import Layout from '../../components/layout/Layout';
 import usePageTitle from '../../hooks/pageTitle';
 
 import './Collection.css';
@@ -14,7 +13,17 @@ function Collection(): JSX.Element {
   usePageTitle(COLLECTION_PAGE_TITLE);
 
   return (
-    <Layout title="the collection">
+    <>
+      <div className="transition">
+        <TypingText
+          text='the collection'
+          style={{
+            fontSize: '24px',
+            marginTop: '24px',
+            marginBottom: '24px',
+          }}
+        />
+      </div>
       <div className="body-wrapper transition">
         <DefaultBody>
           My collection of course notes from various topics across computer
@@ -34,7 +43,7 @@ function Collection(): JSX.Element {
         }}
         className="transition"
       />
-    </Layout>
+    </>
   );
 }
 

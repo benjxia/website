@@ -9,6 +9,8 @@ import Collection from './pages/collection/Collection';
 import BackgroundTiles from './components/background/BackgroundTiles';
 
 import { GlEnabledContext } from './theme/GlEnabledContext';
+import Resume from './pages/about/resume/Resume';
+import Layout from './components/layout/Layout';
 
 const router = createBrowserRouter([
   {
@@ -17,11 +19,27 @@ const router = createBrowserRouter([
   },
   {
     path: '/collection',
-    Component: Collection,
+    Component: Layout,
+    children: [
+      {
+        index: true,
+        Component: Collection
+      }
+    ]
   },
   {
     path: '/about',
-    Component: About,
+    Component: Layout,
+    children: [
+      {
+        index: true,
+        Component: About
+      },
+      {
+        path: 'résumé',
+        Component: Resume
+      }
+    ]
   },
 ]);
 

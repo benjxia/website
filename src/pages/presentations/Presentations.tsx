@@ -1,8 +1,7 @@
 import React, { JSX, ReactNode } from 'react';
 
-import { DefaultBody } from '../../components/text/Text';
+import { DefaultBody, TypingText } from '../../components/text/Text';
 
-import Layout from '../../components/layout/Layout';
 import usePageTitle from '../../hooks/pageTitle';
 
 import cse110 from './slides/cse_110_pitch.pdf';
@@ -115,7 +114,17 @@ function Presentations(): JSX.Element {
   usePageTitle(PRESENTATIONS_PAGE_TITLE);
 
   return (
-    <Layout title="presentations">
+    <>
+      <div className="transition">
+        <TypingText
+          text='presentations'
+          style={{
+            fontSize: '24px',
+            marginTop: '24px',
+            marginBottom: '24px',
+          }}
+        />
+      </div>
       <DefaultBody>
         An archive of some of the presentations (slides) I&apos;ve done over the
         years. This collection is incomplete as it excludes confidential
@@ -133,7 +142,7 @@ function Presentations(): JSX.Element {
           {presentation.description}
         </SlideEntry>
       ))}
-    </Layout>
+    </>
   );
 }
 

@@ -5,7 +5,6 @@ import '../../theme/transition.css';
 import { TypingText, CycleTypingText } from '../../components/text/Text';
 import { IconButton, RedirectButton } from '../../components/button/Button';
 import { Row, Column } from '../../components/format/Format';
-import PageWrapper from '../../components/wrappers/Wrapper';
 
 import { GlEnabledContext } from '../../theme/GlEnabledContext';
 
@@ -47,7 +46,7 @@ function Home(): JSX.Element {
   const [displayBody, setDisplaySubtitle] = useState<boolean>(false);
   const glEnabled = useContext(GlEnabledContext);
 
-  const HomeContent = (
+  return (
     <header className="Home-header transition">
       <TypingText
         style={{
@@ -74,8 +73,8 @@ function Home(): JSX.Element {
       />
       <Column>
         <RedirectButton text="the collection" destination="/collection" />
-        {/* <RedirectButton text='presentations' destination='/presentations' /> */}
-        {/* <RedirectButton text='résumé' destination='/résumé' /> */}
+        <RedirectButton text="notable projects" destination="/projects" />
+        <RedirectButton text="photos" destination="/photos" />
         <RedirectButton text="about" destination="/about" />
       </Column>
       <Row>
@@ -94,8 +93,6 @@ function Home(): JSX.Element {
       </Row>
     </header>
   );
-
-  return <PageWrapper>{HomeContent}</PageWrapper>;
 }
 
 export default Home;

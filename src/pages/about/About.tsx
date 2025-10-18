@@ -1,7 +1,6 @@
 import React, { JSX, useState } from 'react';
 
-import Layout from '../../components/layout/Layout';
-import { DefaultBody } from '../../components/text/Text';
+import { DefaultBody, TypingText } from '../../components/text/Text';
 
 import './About.css';
 import '../../theme/transition.css';
@@ -71,7 +70,7 @@ function Body(): JSX.Element {
         high performance computing including GPU programming, and a bit of
         distributed systems for fun. I&apos;ve also done a bit of frontend work
         when necessary, and it absolutely is not my forte, as is evident by this
-        website&apos;s simple, and crappy design.
+        website&apos;s simple, crappy design, and general low quality of code.
       </DefaultBody>
       <DefaultBody>
         A few people might also recognize me from my brief stints in competitive
@@ -99,6 +98,8 @@ function Body(): JSX.Element {
           width: '50%',
           height: 'auto',
           borderRadius: '25px',
+          alignSelf: 'center',
+          marginBottom: '16px',
         }}
       />
     </div>
@@ -109,12 +110,22 @@ function About(): JSX.Element {
   usePageTitle(ABOUT_PAGE_TITLE);
 
   return (
-    <Layout title="about me">
+    <>
+      <div className="transition">
+        <TypingText
+          text='about me'
+          style={{
+            fontSize: '24px',
+            marginTop: '24px',
+            marginBottom: '24px',
+          }}
+        />
+      </div>
       <div className="about-page-wrapper">
         <Summary />
         <Body />
       </div>
-    </Layout>
+    </>
   );
 }
 
