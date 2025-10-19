@@ -1,5 +1,5 @@
 import React, { JSX, useState } from 'react';
-import { Outlet } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
 
 import { DefaultBody } from '../../components/text/Text';
 
@@ -58,12 +58,11 @@ function Summary(): JSX.Element {
 
 function About(): JSX.Element {
   usePageTitle(ABOUT_PAGE_TITLE);
+
+  const location = useLocation();
+  const path = location.pathname;
   // Avoid bug where nav bar index is fucked by page refreshes
-  const navBarIdx =
-    window.location.pathname === '/about' ||
-    window.location.pathname === '/about/'
-      ? 0
-      : 1;
+  const navBarIdx = path === '/about' || path === '/about/' ? 0 : 1;
 
   return (
     <Layout title="about me">
@@ -89,7 +88,7 @@ function About(): JSX.Element {
                   name: 'résumé',
                 },
               ]}
-              initIndex={navBarIdx}
+              activeIndex={navBarIdx}
             />
           </div>
           <Outlet />

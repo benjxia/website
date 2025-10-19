@@ -1,4 +1,4 @@
-import React, { JSX, useState } from 'react';
+import React, { JSX } from 'react';
 import { Link } from 'react-router';
 
 import './Button.css';
@@ -61,12 +61,10 @@ interface NavProp {
 
 interface NavBarProps {
   paths: NavProp[];
-  initIndex?: number;
+  activeIndex?: number;
 }
 
-function NavBar({paths, initIndex}: NavBarProps): JSX.Element {
-  const [index, setIndex] = useState<number>(initIndex || 0);
-
+function NavBar({paths, activeIndex}: NavBarProps): JSX.Element {
   return (
     <div
       className='about-body-wrapper'
@@ -81,11 +79,8 @@ function NavBar({paths, initIndex}: NavBarProps): JSX.Element {
       {paths.map((path, idx) => (
         <Link
           key={path.path}
-          className={idx === index ? 'RedirectButton' + ' ActiveRedirectButton' : 'RedirectButton'}
+          className={idx === activeIndex ? 'RedirectButton' + ' ActiveRedirectButton' : 'RedirectButton'}
           to={path.path || '/'}
-          onClick={() => {
-            setIndex(idx);
-          }}
         >
           <span data-nosnippet>{path.name}</span>
         </Link>
