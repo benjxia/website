@@ -5,17 +5,23 @@ This allows us to have effects such as background blur and still have elements b
 If an element should blur the background, none of its ancestors should have created a new stacking context separate from the background
 */
 .transition {
-  will-change: transform;
-  animation: load-in 0.5s forwards;
+  clip-path: inset(0 0 100% 0);
+  animation: unveil 1s ease-out forwards;
+  will-change: transform, opacity;
+  /* animation: unveil 1s ease-out forwards; */
 }
 
-@keyframes load-in {
+@keyframes unveil {
   0% {
     opacity: 0;
-    transform: translateX(-25px);
+    clip-path: inset(0 0 100% 0);
   }
   100% {
     opacity: 1;
-    transform: translateX(0px);
+    clip-path: inset(0 0 0 0);  /* fully revealed */
+  }
+
+  done {
+    clip-path: unset;
   }
 }

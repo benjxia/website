@@ -21,7 +21,7 @@ function Body(): JSX.Element {
           programming, and a bit of distributed systems for fun. I&apos;ve also
           done a bit of frontend work when necessary, and it absolutely is not
           my forte, as is evident by this website&apos;s simple, crappy design,
-          and general low code quality.
+          and general lack of code quality.
         </DefaultBody>
         <DefaultBody>
           A few people might also recognize me from my brief stints in

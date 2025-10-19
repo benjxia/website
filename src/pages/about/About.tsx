@@ -22,15 +22,17 @@ function Summary(): JSX.Element {
   return (
     <div className="summary">
       <div className="summary-content">
-        <div className="transition">
-          {!imageLoaded && <div className="face face-placeholder"></div>}
-          <img
-            className="face face-image"
-            src={ugly}
-            alt="there should be an ugly face here"
-            style={imageLoaded ? {} : { display: 'none' }}
-            onLoad={() => setImageLoad(true)}
-          />
+        <div className='perspective-shift'>
+          <div className="transition">
+            {!imageLoaded && <div className="face face-placeholder"></div>}
+            <img
+              className="face face-image"
+              src={ugly}
+              alt="there should be an ugly face here"
+              style={imageLoaded ? {} : { display: 'none' }}
+              onLoad={() => setImageLoad(true)}
+            />
+          </div>
         </div>
         <div className="summary-text transition">
           <DefaultBody noSelect>
