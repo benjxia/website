@@ -12,8 +12,8 @@ interface LayoutProps {
 
 function Layout({ title, children }: LayoutProps): JSX.Element {
   return (
-    <header className="Layout-header">
-      <div className="Layout-div" style={{ position: 'relative' }}>
+    <header className="layout-header">
+      <div className="layout-div" style={{ position: 'relative' }}>
         <div className="transition">
           <HomeButton />
           <TypingText

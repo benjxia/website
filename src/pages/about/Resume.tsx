@@ -25,8 +25,8 @@ function Resume(): JSX.Element {
   };
 
   return (
-    <div className="about-body-wrapper">
-      <div className="about-body-text transition">
+    <div className="about-body-wrapper transition perspective-shift-right">
+      <div className="about-body-text blur-tile">
         <DefaultBody>
           A redacted copy of my résumé, last updated 2025. I really don&apos;t
           like the bolding, but I&apos;ve found it to be helpful in getting
@@ -34,32 +34,28 @@ function Resume(): JSX.Element {
         </DefaultBody>
       </div>
       <div
-        className="transition"
         style={{
+          width: '100%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
         }}
       >
-        <div
-          style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
-        >
-          <iframe
-            ref={ref}
-            title="resume"
-            src={`${resumePDF}#navpanes=0&toolbar=0&statusbar=0&view=FitW`}
-            onLoad={handleLoad}
-            style={{
-              width: '100%',
-              /* Default height so we don't jump around when the user has
-              partially scrolled down and swaps between "about" and "resume" */
-              height: '850px',
-              border: 'none',
-              display: 'block',
-              borderRadius: '25px',
-            }}
-          />
-        </div>
+        <iframe
+          ref={ref}
+          title="resume"
+          src={`${resumePDF}#navpanes=0&toolbar=0&statusbar=0&view=FitW`}
+          onLoad={handleLoad}
+          style={{
+            width: '100%',
+            /* Default height so we don't jump around when the user has
+            partially scrolled down and swaps between "about" and "resume" */
+            height: '850px',
+            border: 'none',
+            display: 'block',
+            borderRadius: '25px',
+          }}
+        />
       </div>
     </div>
   );

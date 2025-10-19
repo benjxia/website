@@ -1,7 +1,7 @@
 /**
 Puts all page content in the center of the screen
 */
-.Layout-header {
+.layout-header {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -10,13 +10,14 @@ Puts all page content in the center of the screen
   align-items: center;
 }
 
-.Layout-div {
+.layout-div {
   width: 80%;
   height: 100%;
 
   /* flex-direction: column;
 
-  /* Disable margin collapsing between adjacent components */
+  /* Disable margin collapsing between adjacent components, issue is
+  more relevant on thinner screens*/
   /* https://stackoverflow.com/questions/19718634/how-to-disable-margin-collapsing */
   /* display: flex fucks up the styling here for some reason */
   display: grid;

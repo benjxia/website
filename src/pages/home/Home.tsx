@@ -4,7 +4,7 @@ import './Home.css';
 import '../../theme/transition.css';
 import { TypingText, CycleTypingText } from '../../components/text/Text';
 import { IconButton, RedirectButton } from '../../components/button/Button';
-import { Row, Column } from '../../components/format/Format';
+import { Row } from '../../components/format/Format';
 
 import { GlEnabledContext } from '../../theme/GlEnabledContext';
 
@@ -57,7 +57,7 @@ function Home(): JSX.Element {
   }, []);
 
   return (
-    <header className="Home-header transition">
+    <header className="home-header transition">
       <TypingText
         style={{
           fontSize: '48px',
@@ -81,12 +81,10 @@ function Home(): JSX.Element {
           margin: '36px',
         }}
       />
-      <Column>
-        <RedirectButton text="the collection" destination="/collection" />
-        {/* <RedirectButton text="notable projects" destination="/projects" />
-        <RedirectButton text="photos" destination="/photos" /> */}
-        <RedirectButton text="about" destination="/about" />
-      </Column>
+      <RedirectButton text="the collection" destination="/collection" />
+      {/* <RedirectButton text="notable projects" destination="/projects" />
+      <RedirectButton text="photos" destination="/photos" /> */}
+      <RedirectButton text="about" destination="/about" />
       <Row>
         <IconButton
           iconId="fa-brands fa-github"

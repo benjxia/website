@@ -15,26 +15,16 @@
 }
 
 .about-body-wrapper {
+  overflow: visible;
+}
+
+.about-body-content {
   position: relative;
-  display: flex;
-  flex-direction: column;
-
-  height: fit-content;
-
-  /* Override normal text to subtly shift colors according to background */
-  /* Disabled because it looks weird on safari */
-  /* mix-blend-mode: difference; */
+  z-index: 0;
 }
 
 .about-body-text {
-  display: flex;
-  flex-direction: column;
-
-  background-color: rgba(0, 0, 0, 0);
-  border-radius: 25px;
-
-  backdrop-filter: blur(8px) brightness(0.8);
-  -webkit-backdrop-filter: blur(8px);
+  position: relative;
 
   padding-left: 20px;
   padding-right: 20px;
@@ -67,12 +57,6 @@
   overflow: visible;
 
   position: relative;
-
-  background-color: rgba(0, 0, 0, 0);
-  border-radius: 25px;
-
-  backdrop-filter: blur(8px) brightness(0.8);
-  -webkit-backdrop-filter: blur(8px);
 
   padding-top: 10px;
   padding-bottom: 10px;
@@ -107,15 +91,25 @@
   animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) infinite;
 }
 
-.perspective-shift {
+.perspective-shift-left {
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.perspective-shift-left:hover {
+  z-index: 1;
+  transform: scale(1.1) perspective(800px) rotate3d(0, 1, 0, 10deg);
+}
+
+.perspective-shift-right {
   z-index: -1;
 
   transition: all 0.3s ease;
 }
 
-.perspective-shift:hover {
+.perspective-shift-right:hover {
   z-index: 1;
-  transform: scale(1.1) perspective(800px) rotate3d(0, 1, 0, 10deg);
+  transform: scale(1.02) perspective(800px) rotate3d(0, 1, 0, -2deg);
 }
 
 @keyframes fade {
@@ -159,7 +153,13 @@
     flex-direction: column;
   }
 
-  .perspective-shift:hover {
+  .perspective-shift-left:hover {
+    z-index: 1;
+    /* Perspective thing looks ugly here */
+    transform: scale(1.05);
+  }
+
+  .perspective-shift-right:hover {
     z-index: 1;
     /* Perspective thing looks ugly here */
     transform: scale(1.05);

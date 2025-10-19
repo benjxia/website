@@ -22,7 +22,7 @@ function Summary(): JSX.Element {
   return (
     <div className="summary">
       <div className="summary-content">
-        <div className='perspective-shift'>
+        <div className='perspective-shift-left'>
           <div className="transition">
             {!imageLoaded && <div className="face face-placeholder"></div>}
             <img
@@ -34,23 +34,18 @@ function Summary(): JSX.Element {
             />
           </div>
         </div>
-        <div className="summary-text transition">
-          <DefaultBody noSelect>
-            Benjamin Xia//夏博伦
+        <div className="summary-text transition perspective-shift-left blur-tile">
+          <DefaultBody transition noSelect style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <span>Benjamin Xia//夏博伦</span>
+            <span><span>me</span>&#64;<span>benjxia.dev</span></span>
             <br />
-            <span>me</span>&#64;<span>benjxia.dev</span>
-            <br />
-            <br />
-            San Diego
-            <br />
-            ↓<br />
-            South Bay
-            <br />
-            ↓<br />
-            San Diego
-            <br />
-            ↓<br />
-            Auckland
+            <span>San Diego</span>
+            <span>↓</span>
+            <span>Bay</span>
+            <span>↓</span>
+            <span>San Diego</span>
+            <span>↓</span>
+            <span>Auckland</span>
           </DefaultBody>
         </div>
       </div>
@@ -95,7 +90,9 @@ function About(): JSX.Element {
               activeIndex={navBarIdx}
             />
           </div>
-          <Outlet />
+          <div className='about-body-content'>
+            <Outlet />
+          </div>
         </div>
       </div>
     </Layout>

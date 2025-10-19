@@ -4,20 +4,76 @@ because it creates a new stacking context https://developer.mozilla.org/en-US/do
 This allows us to have effects such as background blur and still have elements be affected by load in animations
 If an element should blur the background, none of its ancestors should have created a new stacking context separate from the background
 */
-.transition {
-  clip-path: inset(0 0 100% 0);
-  animation: unveil 1s ease-out forwards;
+.transition > * {
+  --enter-stage: 0;
+  --enter-step: 100ms;
+  --enter-initial: 0ms;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+  animation-name: unveil;
+  animation-timeline: auto;
+  animation-range-start: normal;
+
   will-change: transform, opacity;
-  /* animation: unveil 1s ease-out forwards; */
+
+  animation-delay: calc(var(--enter-initial) + var(--enter-stage) * var(--enter-step));
+}
+
+/* This needs to be hard-coded :( */
+.transition > *:nth-child(1) {
+  --enter-stage: 1;
+}
+.transition > *:nth-child(2) {
+  --enter-stage: 2;
+}
+.transition > *:nth-child(3) {
+  --enter-stage: 3;
+}
+.transition > *:nth-child(4) {
+  --enter-stage: 4;
+}
+.transition > *:nth-child(5) {
+  --enter-stage: 5;
+}
+.transition > *:nth-child(6) {
+  --enter-stage: 6;
+}
+.transition > *:nth-child(7) {
+  --enter-stage: 7;
+}
+.transition > *:nth-child(8) {
+  --enter-stage: 8;
+}
+.transition > *:nth-child(9) {
+  --enter-stage: 9;
+}
+.transition > *:nth-child(10) {
+  --enter-stage: 10;
+}
+.transition > *:nth-child(11) {
+  --enter-stage: 11;
 }
 
 @keyframes unveil {
   0% {
     opacity: 0;
-    clip-path: inset(0 0 100% 0);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
-    clip-path: inset(0 0 0 0);  /* fully revealed */
+    transform: translateY(0px);
   }
+}
+
+.blur-tile {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 25px;
+
+  backdrop-filter: blur(8px) brightness(0.8);
+  -webkit-backdrop-filter: blur(8px);
 }

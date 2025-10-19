@@ -6,16 +6,18 @@ interface TextProps {
   style?: React.CSSProperties;
   noSelect?: boolean;
   fontSize?: string;
+  transition?: boolean;
 }
 
 function DefaultText({
   children,
   style = {},
   noSelect = true,
+  transition = false,
 }: TextProps): JSX.Element {
   return (
     <p
-      className="text"
+      className={transition ? "text transition" : "text"}
       style={{
         ...(noSelect && { pointerEvents: 'none', userSelect: 'none' }),
         ...style,
@@ -35,6 +37,7 @@ function DefaultBody({
   style,
   noSelect = false,
   fontSize = '16px',
+  transition = false,
 }: TextProps): JSX.Element {
   return (
     <DefaultText
@@ -43,6 +46,7 @@ function DefaultBody({
         fontSize: fontSize,
       }}
       noSelect={noSelect}
+      transition={transition}
     >
       {children}
     </DefaultText>
