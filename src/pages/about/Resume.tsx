@@ -2,8 +2,8 @@ import React, { JSX, useRef } from 'react';
 
 import resumePDF from './assets/Redacted_Benjamin_Xia_Resume.pdf';
 
-import usePageTitle from '../../../hooks/pageTitle';
-import { DefaultBody, TypingText } from '../../../components/text/Text';
+import usePageTitle from '../../hooks/pageTitle';
+import { DefaultBody } from '../../components/text/Text';
 
 // I'm too lazy to import the css file
 // https://stackoverflow.com/questions/65302337/css-file-is-applying-on-another-react-component-even-without-importing
@@ -25,18 +25,8 @@ function Resume(): JSX.Element {
   };
 
   return (
-    <>
-      <div className="transition">
-        <TypingText
-          text="(outdated) résumé"
-          style={{
-            fontSize: '24px',
-            marginTop: '24px',
-            marginBottom: '24px',
-          }}
-        />
-      </div>
-      <div className="body-wrapper transition">
+    <div className="about-body-wrapper">
+      <div className="about-body-text transition">
         <DefaultBody>
           A redacted copy of my résumé, last updated 2025. I really don&apos;t
           like the bolding, but I&apos;ve found it to be helpful in getting
@@ -60,14 +50,18 @@ function Resume(): JSX.Element {
             src={`${resumePDF}#navpanes=0&toolbar=0&statusbar=0&view=FitW`}
             onLoad={handleLoad}
             style={{
-              width: 'min(100%, 500px)',
+              width: '100%',
+              /* Default height so we don't jump around when the user has
+              partially scrolled down and swaps between "about" and "resume" */
+              height: '850px',
               border: 'none',
               display: 'block',
+              borderRadius: '25px',
             }}
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

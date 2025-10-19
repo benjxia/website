@@ -18,6 +18,10 @@
   z-index: 1;
 }
 
+.ActiveRedirectButton {
+  text-decoration: underline;
+}
+
 /* Background animation thingy */
 .RedirectButton::before {
   content: '';
@@ -33,15 +37,15 @@
   transition: transform 0.5s ease;
 }
 
-/* Hover effect triggers background expansion */
-.RedirectButton:hover::before {
-  transform: translateX(-50%) scaleX(1);
-}
-
 /* Other hover effects */
 .RedirectButton:hover {
   color: black;
   cursor: pointer;
+}
+
+/* Hover effect triggers background expansion */
+.RedirectButton:hover::before {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .HomeButton {

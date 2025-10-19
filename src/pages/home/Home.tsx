@@ -1,4 +1,4 @@
-import React, { JSX, useState, useContext } from 'react';
+import React, { JSX, useState, useContext, useEffect } from 'react';
 
 import './Home.css';
 import '../../theme/transition.css';
@@ -46,6 +46,16 @@ function Home(): JSX.Element {
   const [displayBody, setDisplaySubtitle] = useState<boolean>(false);
   const glEnabled = useContext(GlEnabledContext);
 
+  useEffect(() => {
+    // Force path to "/" if path is unknown
+    if (
+      window.location.pathname.length !== 0 &&
+      window.location.pathname !== '/'
+    ) {
+      history.pushState(null, '', '/');
+    }
+  }, []);
+
   return (
     <header className="Home-header transition">
       <TypingText
@@ -73,8 +83,8 @@ function Home(): JSX.Element {
       />
       <Column>
         <RedirectButton text="the collection" destination="/collection" />
-        <RedirectButton text="notable projects" destination="/projects" />
-        <RedirectButton text="photos" destination="/photos" />
+        {/* <RedirectButton text="notable projects" destination="/projects" />
+        <RedirectButton text="photos" destination="/photos" /> */}
         <RedirectButton text="about" destination="/about" />
       </Column>
       <Row>

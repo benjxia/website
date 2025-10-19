@@ -1,4 +1,4 @@
-import React, { JSX } from 'react';
+import React, { JSX, useState } from 'react';
 import { Link } from 'react-router';
 
 import './Button.css';
@@ -54,4 +54,43 @@ function IconButton({ iconId, linkAddr }: IconButtonProps): JSX.Element {
   );
 }
 
-export { RedirectButton, HomeButton, IconButton };
+interface NavProp {
+  path: string;
+  name: string;
+}
+
+interface NavBarProps {
+  paths: NavProp[];
+}
+
+function NavBar({paths}: NavBarProps): JSX.Element {
+  const [index, setIndex] = useState<number>(0);
+
+  return (
+    <div
+      className='about-body-wrapper'
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '10%', // TODO: make this gap more adaptable or something idk
+      }}
+    >
+      {paths.map((path, idx) => (
+        <Link
+          key={path.path}
+          className={idx === index ? 'RedirectButton' + ' ActiveRedirectButton' : 'RedirectButton'}
+          to={path.path || '/'}
+          onClick={() => {
+            setIndex(idx);
+          }}
+        >
+          <span data-nosnippet>{path.name}</span>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+export { RedirectButton, HomeButton, IconButton, NavBar };
