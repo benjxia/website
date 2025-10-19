@@ -72,11 +72,13 @@ function About(): JSX.Element {
         <Summary />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div
-            className="about-body-text transition"
+            className="transition"
             style={{
               display: 'flex',
+              flexDirection: 'column',
               width: 'max(25%, 200px)',
               alignSelf: 'center',
+              marginBottom: '10px',
             }}
           >
             <NavBar
