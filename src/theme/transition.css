@@ -20,8 +20,4 @@ If an element should blur the background, none of its ancestors should have crea
     opacity: 1;
     clip-path: inset(0 0 0 0);  /* fully revealed */
   }
-
-  done {
-    clip-path: unset;
-  }
 }
