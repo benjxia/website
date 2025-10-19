@@ -5,14 +5,6 @@ import chicken from './img/chicken.jpg';
 function Body(): JSX.Element {
   const ref = useRef<HTMLImageElement>(null);
 
-  const handleLoad = () => {
-    const img = ref.current;
-    if (img) {
-      // We know for sure that the image has this aspect ratio, because we have the original source
-      img.style.height = `${img.offsetWidth * 0.75}px`;
-    }
-  };
-
   return (
     <div className="about-body-wrapper">
       <div className="about-body-text transition">
@@ -57,14 +49,16 @@ function Body(): JSX.Element {
           src={chicken}
           style={{
             width: 'min(75%, 1000px)',
-            /* Default height so we don't jump around when the user has
-            partially scrolled down and swaps between "about" and "resume" */
-            height: '750px',
+            /*
+            We *know* the aspect ratio because we have the img source
+            This also prevents the scrollbar from jumping around before the
+            image has fully loaded
+            */
+            aspectRatio: 4 / 3,
             borderRadius: '25px',
             alignSelf: 'center',
             marginBottom: '16px',
           }}
-          onLoad={handleLoad}
         />
       </div>
     </div>

@@ -58,23 +58,39 @@ function Summary(): JSX.Element {
 
 function About(): JSX.Element {
   usePageTitle(ABOUT_PAGE_TITLE);
+  // Avoid bug where nav bar index is fucked by page refreshes
+  const navBarIdx =
+    window.location.pathname === '/about' ||
+    window.location.pathname === '/about/'
+      ? 0
+      : 1;
 
   return (
     <Layout title="about me">
       <div className="about-page-wrapper">
         <Summary />
-        <div style={{display: 'flex', flexDirection: 'column'}}>
-          <div className='about-body-text transition' style={{display: 'flex', width: 'max(25%, 200px)', alignSelf: 'center'}}>
-            <NavBar paths={[
-              {
-                path: '/about',
-                name: 'about'
-              },
-              {
-                path: '/about/résumé',
-                name: 'résumé'
-              }
-            ]} />
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div
+            className="about-body-text transition"
+            style={{
+              display: 'flex',
+              width: 'max(25%, 200px)',
+              alignSelf: 'center',
+            }}
+          >
+            <NavBar
+              paths={[
+                {
+                  path: '/about',
+                  name: 'about',
+                },
+                {
+                  path: '/about/résumé',
+                  name: 'résumé',
+                },
+              ]}
+              initIndex={navBarIdx}
+            />
           </div>
           <Outlet />
         </div>

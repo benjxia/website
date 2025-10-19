@@ -61,10 +61,11 @@ interface NavProp {
 
 interface NavBarProps {
   paths: NavProp[];
+  initIndex?: number;
 }
 
-function NavBar({paths}: NavBarProps): JSX.Element {
-  const [index, setIndex] = useState<number>(0);
+function NavBar({paths, initIndex}: NavBarProps): JSX.Element {
+  const [index, setIndex] = useState<number>(initIndex || 0);
 
   return (
     <div
