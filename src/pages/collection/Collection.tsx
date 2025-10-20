@@ -1,12 +1,11 @@
 import React, { JSX } from 'react';
 
+import Layout from '../../components/layout/Layout';
 import { DefaultBody } from '../../components/text/Text';
-
 import usePageTitle from '../../hooks/pageTitle';
 
 import './Collection.css';
 import '../../theme/transition.css';
-import Layout from '../../components/layout/Layout';
 
 const COLLECTION_PAGE_TITLE = 'the collection';
 

@@ -1,9 +1,12 @@
 import React, { JSX, useRef } from 'react';
 
-import resumePDF from './assets/Redacted_Benjamin_Xia_Resume.pdf';
-
 import usePageTitle from '../../hooks/pageTitle';
 import { DefaultBody } from '../../components/text/Text';
+
+import './About.css';
+import '../../theme/transition.css';
+
+import resumePDF from './assets/Redacted_Benjamin_Xia_Resume.pdf';
 
 // I'm too lazy to import the css file
 // https://stackoverflow.com/questions/65302337/css-file-is-applying-on-another-react-component-even-without-importing
@@ -25,7 +28,10 @@ function Resume(): JSX.Element {
   };
 
   return (
-    <div className="about-body-wrapper transition perspective-shift-right">
+    // I don't know how or why having transition at a parent component above
+    // blur-tile doesn't break here when it breaks everywhere else
+    // probably some browser bug in the cases where this breaks
+    <div className="transition perspective-shift-right">
       <div className="about-body-text blur-tile">
         <DefaultBody>
           A redacted copy of my résumé, last updated 2025. I really don&apos;t

@@ -1,16 +1,15 @@
 import React, { JSX, useState } from 'react';
 import { Outlet, useLocation } from 'react-router';
 
-import { DefaultBody } from '../../components/text/Text';
-
-import './About.css';
-import '../../theme/transition.css';
-
-import ugly from './img/IMG_4099.png';
 import useThemeColors from '../../hooks/theme';
 import usePageTitle from '../../hooks/pageTitle';
 import Layout from '../../components/layout/Layout';
 import { NavBar } from '../../components/button/Button';
+import { DefaultBody } from '../../components/text/Text';
+
+import './About.css';
+import '../../theme/transition.css';
+import ugly from './img/IMG_4099.png';
 
 const ABOUT_PAGE_TITLE = 'about me :)';
 
@@ -21,33 +20,53 @@ function Summary(): JSX.Element {
 
   return (
     <div className="summary">
-      <div className="summary-content">
-        <div className='perspective-shift-left'>
-          <div className="transition">
-            {!imageLoaded && <div className="face face-placeholder"></div>}
-            <img
-              className="face face-image"
-              src={ugly}
-              alt="there should be an ugly face here"
-              style={imageLoaded ? {} : { display: 'none' }}
-              onLoad={() => setImageLoad(true)}
-            />
-          </div>
-        </div>
-        <div className="summary-text transition perspective-shift-left blur-tile">
-          <DefaultBody transition noSelect style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-            <span>Benjamin Xia//夏博伦</span>
-            <span><span>me</span>&#64;<span>benjxia.dev</span></span>
-            <br />
-            <span>San Diego</span>
-            <span>↓</span>
-            <span>Bay</span>
-            <span>↓</span>
-            <span>San Diego</span>
-            <span>↓</span>
-            <span>Auckland</span>
-          </DefaultBody>
-        </div>
+      {/*
+      We bake the position: sticky into face-container and summary-text
+      because of some bugs on different browsers
+      ex. on FireFox, the extra stacking context from a parent div having
+      position: sticky causes the background blur to disappear for some
+      fucking reason i dont understand
+
+      We also bake transition onto the same level as blur-tile for similar
+      reasons, for some reason the extra stacking context from tile-blur breaks
+      the backdrop filter from blur-tile (ONLY ON CHROME! IT WORKS FOR THE OTHER
+      BROWSERS). But it only breaks when the stacking context is created by a
+      transform, other ways of creating stacking context such as position:
+      sticky or setting z-index doesn't break it for some reason.
+      */}
+      <div className="transition face-container perspective-shift-left">
+        {!imageLoaded && <div className="face face-placeholder"></div>}
+        <img
+          className="face face-image"
+          src={ugly}
+          alt="there should be an ugly face here"
+          style={imageLoaded ? {} : { display: 'none' }}
+          onLoad={() => setImageLoad(true)}
+        />
+      </div>
+      <div className="summary-text blur-tile transition perspective-shift-left">
+        <DefaultBody
+          transition
+          noSelect
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <span>Benjamin Xia//夏博伦</span>
+          <span>
+            <span>me</span>&#64;<span>benjxia.dev</span>
+          </span>
+          <br />
+          <span>San Diego</span>
+          <span>↓</span>
+          <span>Bay</span>
+          <span>↓</span>
+          <span>San Diego</span>
+          <span>↓</span>
+          <span>Auckland</span>
+        </DefaultBody>
       </div>
     </div>
   );
@@ -90,9 +109,7 @@ function About(): JSX.Element {
               activeIndex={navBarIdx}
             />
           </div>
-          <div className='about-body-content'>
-            <Outlet />
-          </div>
+          <Outlet />
         </div>
       </div>
     </Layout>

@@ -1,5 +1,9 @@
 import React, { JSX, useRef } from 'react';
 import { DefaultBody } from '../../components/text/Text';
+
+import './About.css';
+import '../../theme/transition.css';
+
 import chicken from './img/chicken.jpg';
 
 function Body(): JSX.Element {

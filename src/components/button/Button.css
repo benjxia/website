@@ -1,4 +1,4 @@
-.RedirectButton {
+.redirect-button {
   user-select: none;
   display: block;
   position: relative;
@@ -18,12 +18,12 @@
   z-index: 1;
 }
 
-.ActiveRedirectButton {
+.active-redirect-button {
   text-decoration: underline;
 }
 
 /* Background animation thingy */
-.RedirectButton::before {
+.redirect-button::before {
   content: '';
   position: absolute;
   left: 50%;
@@ -38,17 +38,17 @@
 }
 
 /* Other hover effects */
-.RedirectButton:hover {
+.redirect-button:hover {
   color: black;
   cursor: pointer;
 }
 
 /* Hover effect triggers background expansion */
-.RedirectButton:hover::before {
+.redirect-button:hover::before {
   transform: translateX(-50%) scaleX(1);
 }
 
-.HomeButton {
+.home-button {
   user-select: none;
   display: block;
   position: relative;
@@ -76,14 +76,14 @@
 }
 
 /* Other hover effects */
-.HomeButton:hover {
+.home-button:hover {
   color: black;
   cursor: pointer;
 }
 
 /* Arrow for home button */
 /* 0.05em toalign the arrow with the text vertically, not exact but close enuf */
-.HomeButton::before {
+.home-button::before {
   color: black;
   content: '❰';
   position: absolute;
@@ -97,13 +97,13 @@
   pointer-events: none;
 }
 
-.HomeButton:hover::before {
+.home-button:hover::before {
   transform: translateX(0%);
   opacity: 1;
 }
 
 /* Background for home button */
-.HomeButton::after {
+.home-button::after {
   content: '';
   display: inline;
   position: absolute;
@@ -121,11 +121,11 @@
 }
 
 /* Hover effect triggers background expansion */
-.HomeButton:hover::after {
+.home-button:hover::after {
   transform: scaleX(1);
 }
 
-.HomeButton .HomeButton-text {
+.home-button .home-button-text {
   display: inline-block;
   position: relative;
   height: 100%;
@@ -135,6 +135,6 @@
   transition: transform 0.5s ease;
 }
 
-.HomeButton:hover .HomeButton-text {
+.home-button:hover .home-button-text {
   transform: translateX(15%);
 }

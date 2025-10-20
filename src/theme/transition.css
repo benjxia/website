@@ -70,10 +70,100 @@ If an element should blur the background, none of its ancestors should have crea
   }
 }
 
+.perspective-shift-left {
+  transition: all 0.3s ease;
+}
+
+.perspective-shift-left:hover {
+  transform: scale(1.1) perspective(800px) rotate3d(0, 1, 0, 10deg);
+  z-index: 1;
+}
+
+.perspective-shift-right {
+  transition: all 0.3s ease;
+}
+
+.perspective-shift-right:hover {
+  transform: scale(1.02) perspective(800px) rotate3d(0, 1, 0, -2deg);
+}
+
 .blur-tile {
-  background-color: rgba(0, 0, 0, 0);
+  /* background-color: rgba(0, 0, 0, 0.4); */
   border-radius: 25px;
 
+
+  /*
+  Okay I'm about to go on a huge rant.
+  The following is a validas of October 19, 2025
+
+  This shit is disabled because of different browsers having different bugs
+  Consider the following code
+  <!-- This works great, hello world is blurred on Chrome, Firefox, and Safari -->
+  <div> This div does not create a new stacking context
+    uh
+    <div className='load-in blur'>
+      hello world
+    </div>
+  </div>
+
+  <!-- hello world is NOT blurred on Chrome -->
+  <div className='load-in' style={{zIndex: 0}}> This creates a new stacking context
+    uh
+    <div className='blur' >
+      hello world
+    </div>
+  </div>
+
+  <!-- This works great, hello world is blurred on Chrome, Firefox, and Safari -->
+  <div style={{zIndex: 0}}> This creates a new stacking context
+    uh
+    <div className='blur' >
+      hello world
+    </div>
+  </div>
+
+  .load-in {
+    background-color: rgba(0, 0, 0, 0);
+    background: transparent;
+    animation: load-in 0.5s forwards;
+  }
+
+  @keyframes load-in {
+    0% {
+      opacity: 0;
+      transform: translateX(-2.5%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+
+  .blur {
+      background-color: rgba(0, 0, 0, 0);
+      border-radius: 25px;
+
+      backdrop-filter: blur(8px) brightness(0.8);
+      -webkit-backdrop-filter: blur(8px);
+  }
+
+  In the above code, we can simply go with option 1 to make sure our shit still
+  works with load-in animation on all 3 platforms, even with the inconsistent
+  behavior
+
+  Now, if we were to also include on hover perspective transformations into the
+  mix...
+
+
+  <div className='blur-tile perspective-shift-left'>
+    hello world
+  </div>
+
+  It'd work great on Chrome and Safari, but on Firefox... THE BLUR FUCKING
+  DISAPPEARS AFTER YOU HOVER, WHY????
+  */
+
+  background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(8px) brightness(0.8);
   -webkit-backdrop-filter: blur(8px);
 }

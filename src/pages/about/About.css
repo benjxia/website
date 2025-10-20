@@ -10,17 +10,8 @@
     My guess is that it's because the text, visually speaking, occupies more of the bottom half than the top half of its own height
 
     This extra margin makes it "feel" more centered.
-    */
+  */
   margin-top: 10px;
-}
-
-.about-body-wrapper {
-  overflow: visible;
-}
-
-.about-body-content {
-  position: relative;
-  z-index: 0;
 }
 
 .about-body-text {
@@ -32,11 +23,6 @@
   padding-bottom: 10px;
 
   margin-bottom: 10px;
-}
-
-.summary-content {
-  position: sticky;
-  top: 24px;
 }
 
 .summary {
@@ -52,18 +38,20 @@
 }
 
 .summary-text {
+  position: sticky;
+  top: 334px;
+
   text-align: center;
-
-  overflow: visible;
-
-  position: relative;
 
   padding-top: 10px;
   padding-bottom: 10px;
 
-  z-index: -1;
-
   margin-bottom: 10px;
+}
+
+.face-container {
+  position: sticky;
+  top: 24px;
 }
 
 .face {
@@ -89,27 +77,6 @@
 .face-placeholder {
   opacity: 0.5;
   animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) infinite;
-}
-
-.perspective-shift-left {
-  z-index: -1;
-  transition: all 0.3s ease;
-}
-
-.perspective-shift-left:hover {
-  z-index: 1;
-  transform: scale(1.1) perspective(800px) rotate3d(0, 1, 0, 10deg);
-}
-
-.perspective-shift-right {
-  z-index: -1;
-
-  transition: all 0.3s ease;
-}
-
-.perspective-shift-right:hover {
-  z-index: 1;
-  transform: scale(1.02) perspective(800px) rotate3d(0, 1, 0, -2deg);
 }
 
 @keyframes fade {
@@ -146,6 +113,7 @@
 
   .summary-text {
     display: block;
+    top: 0;
   }
 
   .about-body-wrapper {
@@ -154,14 +122,20 @@
   }
 
   .perspective-shift-left:hover {
-    z-index: 1;
     /* Perspective thing looks ugly here */
     transform: scale(1.05);
   }
 
+  /* shit on the right side will generally be bigger with the
+  website's design */
   .perspective-shift-right:hover {
-    z-index: 1;
     /* Perspective thing looks ugly here */
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
+
+  .face-container {
+    position: relative;
+    top: 0;
+  }
+
 }

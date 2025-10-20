@@ -1,12 +1,12 @@
 import React, { JSX, useState, useContext, useEffect } from 'react';
 
-import './Home.css';
-import '../../theme/transition.css';
 import { TypingText, CycleTypingText } from '../../components/text/Text';
 import { IconButton, RedirectButton } from '../../components/button/Button';
 import { Row } from '../../components/format/Format';
-
 import { GlEnabledContext } from '../../theme/GlEnabledContext';
+
+import './Home.css';
+import '../../theme/transition.css';
 
 const TITLE_TEXT = 'benjxia';
 

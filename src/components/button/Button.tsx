@@ -17,7 +17,7 @@ function RedirectButton({
   useThemeColors();
 
   return (
-    <Link className="RedirectButton" to={destination || '/'}>
+    <Link className="redirect-button" to={destination || '/'}>
       <span data-nosnippet>{text}</span>
     </Link>
   );
@@ -27,8 +27,8 @@ function HomeButton(): JSX.Element {
   useThemeColors();
 
   return (
-    <Link className="HomeButton" to="/">
-      <nav className="HomeButton-text">benjxia</nav>
+    <Link className="home-button" to="/">
+      <nav className="home-button-text">benjxia</nav>
     </Link>
   );
 }
@@ -45,7 +45,7 @@ function IconButton({ iconId, linkAddr }: IconButtonProps): JSX.Element {
   };
   return (
     <button
-      className="RedirectButton"
+      className="redirect-button"
       onClick={handleExternalLink}
       style={{ display: 'inline-block' }}
     >
@@ -67,7 +67,6 @@ interface NavBarProps {
 function NavBar({paths, activeIndex}: NavBarProps): JSX.Element {
   return (
     <div
-      className='about-body-wrapper'
       style={{
         display: 'flex',
         flexDirection: 'row',
@@ -79,7 +78,7 @@ function NavBar({paths, activeIndex}: NavBarProps): JSX.Element {
       {paths.map((path, idx) => (
         <Link
           key={path.path}
-          className={idx === activeIndex ? 'RedirectButton' + ' ActiveRedirectButton' : 'RedirectButton'}
+          className={idx === activeIndex ? 'redirect-button' + ' active-redirect-button' : 'redirect-button'}
           to={path.path || '/'}
         >
           <span data-nosnippet>{path.name}</span>
