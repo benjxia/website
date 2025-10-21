@@ -31,7 +31,7 @@ function Resume(): JSX.Element {
     // I don't know how or why having transition at a parent component above
     // blur-tile doesn't break here when it breaks everywhere else
     // probably some browser bug in the cases where this breaks
-    <div className="transition perspective-shift-right">
+    <div className="transition">
       <div className="about-body-text blur-tile">
         <DefaultBody>
           A redacted copy of my résumé, last updated 2025. I really don&apos;t

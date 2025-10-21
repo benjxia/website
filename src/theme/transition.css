@@ -76,7 +76,7 @@ If an element should blur the background, none of its ancestors should have crea
 
 .perspective-shift-left:hover {
   transform: scale(1.1) perspective(800px) rotate3d(0, 1, 0, 10deg);
-  z-index: 1;
+  z-index: 2;
 }
 
 .perspective-shift-right {
@@ -85,6 +85,14 @@ If an element should blur the background, none of its ancestors should have crea
 
 .perspective-shift-right:hover {
   transform: scale(1.02) perspective(800px) rotate3d(0, 1, 0, -2deg);
+}
+
+.zoom {
+  transition: all 0.3s ease;
+}
+
+.zoom:hover {
+  transform: scale(1.02);
 }
 
 .blur-tile {
