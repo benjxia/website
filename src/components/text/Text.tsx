@@ -1,5 +1,6 @@
 import React, { JSX, ReactNode, useEffect, useState } from 'react';
 import './Text.css';
+import useThemeColors from '../../hooks/theme';
 
 interface TextProps {
   children: ReactNode;
@@ -15,6 +16,7 @@ function DefaultText({
   noSelect = true,
   transition = false,
 }: TextProps): JSX.Element {
+  useThemeColors();
   return (
     <p
       className={transition ? "text transition" : "text"}

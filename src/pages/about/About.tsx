@@ -45,43 +45,45 @@ function Summary(): JSX.Element {
           onLoad={() => setImageLoad(true)}
         />
       </div>
-      <div className="summary-text blur-tile transition perspective-shift-left">
-        <DefaultBody
-          transition
-          noSelect
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <span>Benjamin Xia//夏博伦</span>
-          <span>
-            <span>me</span>&#64;<span>benjxia.dev</span>
-          </span>
-          <br />
-          <span>San Diego</span>
-          <span>↓</span>
-          <span>Bay</span>
-          <span>↓</span>
-          <span>San Diego</span>
-          <span>↓</span>
-          <span>Auckland</span>
-        </DefaultBody>
-        <Row style={{animationDelay: '1.1s'}}>
-          <IconButton
-            iconId="fa-brands fa-github"
-            linkAddr="https://github.com/benjxia"
-          />
-          <IconButton
-            iconId="fa-brands fa-linkedin"
-            linkAddr="https://www.linkedin.com/in/benjxia/"
-          />
-          <IconButton
-            iconId="fa-brands fa-instagram"
-            linkAddr="https://www.instagram.com/benjxia/"
-          />
-        </Row>
+      <div className='transition perspective-shift-left'>
+        <div className="summary-text blur-tile">
+          <DefaultBody
+            transition
+            noSelect
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <span>Benjamin Xia//夏博伦</span>
+            <span>
+              <span>me</span>&#64;<span>benjxia.dev</span>
+            </span>
+            <br />
+            <span>San Diego</span>
+            <span>↓</span>
+            <span>Bay</span>
+            <span>↓</span>
+            <span>San Diego</span>
+            <span>↓</span>
+            <span>Auckland</span>
+          </DefaultBody>
+          <Row style={{animationDelay: '1.1s'}}>
+            <IconButton
+              iconId="fa-brands fa-github"
+              linkAddr="https://github.com/benjxia"
+            />
+            <IconButton
+              iconId="fa-brands fa-linkedin"
+              linkAddr="https://www.linkedin.com/in/benjxia/"
+            />
+            <IconButton
+              iconId="fa-brands fa-instagram"
+              linkAddr="https://www.instagram.com/benjxia/"
+            />
+          </Row>
+        </div>
       </div>
     </div>
   );
