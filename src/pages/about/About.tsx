@@ -4,12 +4,13 @@ import { Outlet, useLocation } from 'react-router';
 import useThemeColors from '../../hooks/theme';
 import usePageTitle from '../../hooks/pageTitle';
 import Layout from '../../components/layout/Layout';
-import { NavBar } from '../../components/button/Button';
+import { IconButton, NavBar } from '../../components/button/Button';
 import { DefaultBody } from '../../components/text/Text';
 
 import './About.css';
 import '../../theme/transition.css';
 import ugly from './img/IMG_4099.png';
+import { Row } from '../../components/format/Format';
 
 const ABOUT_PAGE_TITLE = 'about me :)';
 
@@ -67,6 +68,20 @@ function Summary(): JSX.Element {
           <span>↓</span>
           <span>Auckland</span>
         </DefaultBody>
+        <Row style={{animationDelay: '1.1s'}}>
+          <IconButton
+            iconId="fa-brands fa-github"
+            linkAddr="https://github.com/benjxia"
+          />
+          <IconButton
+            iconId="fa-brands fa-linkedin"
+            linkAddr="https://www.linkedin.com/in/benjxia/"
+          />
+          <IconButton
+            iconId="fa-brands fa-instagram"
+            linkAddr="https://www.instagram.com/benjxia/"
+          />
+        </Row>
       </div>
     </div>
   );

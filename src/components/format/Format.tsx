@@ -1,6 +1,7 @@
 import React, { JSX } from 'react';
 
 interface ColumnProps {
+  style?: React.CSSProperties;
   children?: React.ReactNode | React.ReactNode[];
 }
 
@@ -19,10 +20,11 @@ function Column({ children }: ColumnProps): JSX.Element {
   );
 }
 
-function Row({ children }: ColumnProps): JSX.Element {
+function Row({ style, children }: ColumnProps): JSX.Element {
   return (
     <div
       style={{
+        ...style,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
