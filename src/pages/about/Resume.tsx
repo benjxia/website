@@ -35,8 +35,10 @@ function Resume(): JSX.Element {
       <div className="about-body-text blur-tile">
         <DefaultBody>
           A redacted copy of my résumé, last updated 2025. I really don&apos;t
-          like the bolding, but I&apos;ve found it to be helpful in getting
-          callbacks after a LOT of ablations.
+          like the bolding since it&apos;s kind of ugly and makes résumés look
+          like they&apos;re trying too hard. But I get 0 interviews without
+          bolding, and a small handful of interviews with bolding per year,
+          so the bolding is staying.
         </DefaultBody>
       </div>
       <div

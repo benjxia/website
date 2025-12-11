@@ -82,8 +82,8 @@ function Home(): JSX.Element {
         }}
       />
       <RedirectButton text="the collection" destination="/collection" />
-      {/* <RedirectButton text="notable projects" destination="/projects" />
-      <RedirectButton text="photos" destination="/photos" /> */}
+      {/* <RedirectButton text="notable projects" destination="/projects" /> */}
+      <RedirectButton text="photos" destination="/photos" />
       <RedirectButton text="about" destination="/about" />
       <Row>
         <IconButton

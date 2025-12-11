@@ -75,7 +75,7 @@
   pointer-events: none;
 }
 
-.face-placeholder {
+.placeholder {
   opacity: 0.5;
   animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) infinite;
 }

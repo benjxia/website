@@ -58,7 +58,12 @@ If an element should blur the background, none of its ancestors should have crea
 .transition > *:nth-child(11) {
   --enter-stage: 11;
 }
-
+.transition > *:nth-child(12) {
+  --enter-stage: 12;
+}
+.transition > *:nth-child(13) {
+  --enter-stage: 13;
+}
 @keyframes unveil {
   0% {
     opacity: 0;

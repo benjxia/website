@@ -12,30 +12,22 @@ function Body(): JSX.Element {
     <div className="transition">
       <div className="about-body-text transition blur-tile">
         <DefaultBody>
-          (Probably) The one and only CS student turned chicken farmer.
-        </DefaultBody>
-        <DefaultBody>
           I graduated from Westview High School in 2021, and from UC San Diego
           with a Bachelor&apos;s in Computer Science in 2024, and a
           Master&apos;s in Computer Science in 2025. My main focuses have
-          included a combination of computer vision - both classical and deep
-          learning based, 3d graphics, (non-generative) machine learning theory,
-          operating systems, high performance computing including GPU
+          included a combination of classical and machine learning based computer vision,
+          realtime and offline 3d graphics, theoretical machine learning,
+          operating systems, high performance computing, GPU
           programming, and a bit of distributed systems for fun. I&apos;ve also
-          done a bit of frontend work when necessary, and it absolutely is not
-          my forte, as is evident by this website&apos;s simple, crappy design,
+          done a bit of frontend work when necessary, but it absolutely is not
+          my forte, as evident by this website&apos;s simple, crappy design,
           and general lack of code quality.
         </DefaultBody>
         <DefaultBody>
-          A few people might also recognize me from my brief stints in
-          competitive Overwatch, where I mainly played tank heroes for a few
-          teams including UC San Diego&apos;s 2021-2022 varsity team (aka
-          &quot;UCSD Gold&quot;) and reached Top 500 on the North American
-          leaderboard a few times. If you are one of those people, hi! :D,
-          it&apos;s been a while.
-        </DefaultBody>
-        <DefaultBody>
-          In my free time I sometimes still play some shooter games, chess, gym,
+          I&apos;ve had a few brief stints in competitive Overwatch during high school,
+          and mainly played tank heroes for a few teams including UC San Diego&apos;s
+          2021-2022 varsity team/UCSD Gold and also placed Top 500 on the North American
+          leaderboard a few times. In my free time I sometimes still play some shooter games, chess, gym,
           care for my pet budgies, and of course, farm chickens (for eggs).
         </DefaultBody>
         <DefaultBody>

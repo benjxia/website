@@ -11,6 +11,7 @@ import BackgroundTiles from './components/background/BackgroundTiles';
 import { GlEnabledContext } from './theme/GlEnabledContext';
 import Resume from './pages/about/Resume';
 import Body from './pages/about/Body';
+import Photos from './pages/photos/Photos';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: '/collection',
     Component: Collection,
+  },
+  {
+    path: '/photos',
+    Component: Photos
   },
   {
     path: '/about',
