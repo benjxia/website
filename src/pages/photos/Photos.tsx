@@ -6,7 +6,7 @@ import { EntryType } from '../../components/album/Entry';
 
 const items = [
   {
-    src: 'https://collection.benjxia.dev/photos/milky_way.png',
+    src: 'https://collection.benjxia.dev/photos/milky_way.jpeg',
     type: EntryType.PHOTO,
   },
   {
