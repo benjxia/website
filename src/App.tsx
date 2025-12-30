@@ -22,6 +22,10 @@ const router = createBrowserRouter([
     path: '/collection',
     Component: Collection,
   },
+  // {
+  //   path: '/posts',
+  //   Component:
+  // },
   {
     path: '/photos',
     Component: Photos

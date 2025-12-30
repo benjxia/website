@@ -53,6 +53,10 @@ const items = [
     src: 'https://collection.benjxia.dev/photos/seattle-skyline.jpeg',
     type: EntryType.PHOTO,
   },
+  {
+    src: 'https://collection.benjxia.dev/photos/gull.png',
+    type: EntryType.PHOTO,
+  }
 ]
 
 function Photos(): JSX.Element {
