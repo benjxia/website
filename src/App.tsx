@@ -3,48 +3,12 @@ import { RouterProvider } from 'react-router';
 
 import { createBrowserRouter } from 'react-router';
 
-import Home from './pages/home/Home';
-import About from './pages/about/About';
-import Collection from './pages/collection/Collection';
 import BackgroundTiles from './components/background/BackgroundTiles';
 
 import { GlEnabledContext } from './theme/GlEnabledContext';
-import Resume from './pages/about/Resume';
-import Body from './pages/about/Body';
-import Photos from './pages/photos/Photos';
+import { PATHS } from './routes';
 
-const router = createBrowserRouter([
-  {
-    path: '*',
-    Component: Home,
-  },
-  {
-    path: '/collection',
-    Component: Collection,
-  },
-  // {
-  //   path: '/posts',
-  //   Component:
-  // },
-  {
-    path: '/photos',
-    Component: Photos
-  },
-  {
-    path: '/about',
-    Component: About,
-    children: [
-      {
-        index: true,
-        Component: Body
-      },
-      {
-        path: 'résumé',
-        Component: Resume
-      }
-    ]
-  },
-]);
+const router = createBrowserRouter(PATHS);
 
 function App(): JSX.Element {
   const [glEnabled, setGlEnabled] = useState<boolean>(false);

@@ -62,13 +62,13 @@ function Summary(): JSX.Element {
                 <span>me</span>&#64;<span>benjxia.dev</span>
               </span>
               <br />
-              <span>San Diego</span>
+              <span>San Diego, CA</span>
               <span>↓</span>
-              <span>Bay</span>
+              <span>Mountain View, CA</span>
               <span>↓</span>
-              <span>San Diego</span>
+              <span>San Diego, CA</span>
               <span>↓</span>
-              <span>Auckland</span>
+              <span>Auckland, NZ</span>
             </DefaultBody>
             <Row style={{ animationDelay: '1.1s' }}>
               <IconButton

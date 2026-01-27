@@ -10,6 +10,20 @@ interface RedirectButtonProps {
   destination?: string;
 }
 
+function RedirectButtonNavBar({
+  text,
+  destination
+}: RedirectButtonProps): JSX.Element {
+  useThemeColors();
+  return (
+    <div style={{marginTop: 'min(5vw, 36px)'}}>
+      <Link className="redirect-button redirect-navbar-button" to={destination || '/'}>
+        <span data-nosnippet>{text}</span>
+      </Link>
+    </div>
+  );
+}
+
 function RedirectButton({
   text,
   destination,
@@ -88,4 +102,4 @@ function NavBar({paths, activeIndex}: NavBarProps): JSX.Element {
   );
 }
 
-export { RedirectButton, HomeButton, IconButton, NavBar };
+export { RedirectButtonNavBar, RedirectButton, HomeButton, IconButton, NavBar };

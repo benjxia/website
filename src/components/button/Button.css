@@ -18,6 +18,10 @@
   z-index: 1;
 }
 
+.redirect-navbar-button {
+  font-size: 16px;
+}
+
 .active-redirect-button {
   text-decoration: underline;
 }
@@ -59,7 +63,7 @@
 
   /* text display properties */
   color: white;
-  font-size: 24px;
+  font-size: 16px;
   text-align: left;
 
   font-family: monospace;
@@ -88,11 +92,11 @@
   content: '❰';
   position: absolute;
   display: inline-block;
-  bottom: 0.05em;
+  bottom: 0.06em; /* Determines vertical position of the < symbol */
 
   transform: translateX(75%);
   opacity: 0;
-  font-size: 24px;
+  font-size: 16px;
   transition: all 0.4s ease;
   pointer-events: none;
 }

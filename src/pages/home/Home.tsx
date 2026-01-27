@@ -7,6 +7,7 @@ import { GlEnabledContext } from '../../theme/GlEnabledContext';
 
 import './Home.css';
 import '../../theme/transition.css';
+import { ROUTES } from '../../routes';
 
 const TITLE_TEXT = 'benjxia';
 
@@ -81,10 +82,12 @@ function Home(): JSX.Element {
           margin: '36px',
         }}
       />
-      <RedirectButton text="the collection" destination="/collection" />
-      {/* <RedirectButton text="notable projects" destination="/projects" /> */}
-      <RedirectButton text="photos" destination="/photos" />
-      <RedirectButton text="about" destination="/about" />
+
+      {
+        // Home page nav links
+        ROUTES.map(p => <RedirectButton key={p.navBarText} text={p.navBarText} destination={p.routeObject.path}/>)
+      }
+
       <Row>
         <IconButton
           iconId="fa-brands fa-github"
