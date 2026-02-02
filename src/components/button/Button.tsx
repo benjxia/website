@@ -1,25 +1,35 @@
-import React, { JSX } from 'react';
-import { Link } from 'react-router';
+import React, { JSX, MouseEventHandler } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import './Button.css';
 import useThemeColors from '../../hooks/theme';
 
 interface RedirectButtonProps {
   text: string;
-  style?: React.CSSProperties;
   destination?: string;
+  clickCallback?: React.MouseEventHandler<HTMLDivElement>;
+  style?: React.CSSProperties;
 }
 
 function RedirectButtonNavBar({
   text,
-  destination
+  destination,
+  clickCallback
 }: RedirectButtonProps): JSX.Element {
+  const navigate = useNavigate();
   useThemeColors();
+
+  const handleLinkClick: React.MouseEventHandler<HTMLDivElement> = (event) => {
+    clickCallback?.(event);
+    navigate(destination || '/');
+  };
+
   return (
     <div style={{marginTop: 'min(5vw, 36px)'}}>
-      <Link className="redirect-button redirect-navbar-button" to={destination || '/'}>
+      <div className="redirect-button redirect-navbar-button" onClick={handleLinkClick}>
         <span data-nosnippet>{text}</span>
-      </Link>
+      </div>
     </div>
   );
 }
@@ -27,13 +37,21 @@ function RedirectButtonNavBar({
 function RedirectButton({
   text,
   destination,
+  clickCallback,
+  style,
 }: RedirectButtonProps): JSX.Element {
+  const navigate = useNavigate();
   useThemeColors();
 
+  const handleLinkClick: React.MouseEventHandler<HTMLDivElement> = (event) => {
+    clickCallback?.(event);
+    navigate(destination || '/');
+  };
+
   return (
-    <Link className="redirect-button" to={destination || '/'}>
+    <div className="redirect-button" style={style} onClick={handleLinkClick}>
       <span data-nosnippet>{text}</span>
-    </Link>
+    </div>
   );
 }
 
@@ -44,6 +62,27 @@ function HomeButton(): JSX.Element {
     <Link className="home-button" to="/">
       <nav className="home-button-text">benjxia</nav>
     </Link>
+  );
+}
+
+interface MenuButtonProps {
+  handleClick: MouseEventHandler<HTMLButtonElement>;
+}
+
+// TODO: add functionality to this thing
+function MenuButton({handleClick}: MenuButtonProps): JSX.Element {
+  return (
+    <button className="redirect-button" onClick={handleClick}>
+      <i className="fa-solid fa-bars"></i>
+    </button>
+  );
+}
+
+function ExitMenuButton({handleClick}: MenuButtonProps): JSX.Element {
+  return (
+    <button className="redirect-button" onClick={handleClick} style={{marginTop: '20px'}}>
+      <i className="fa-solid fa-x"></i>
+    </button>
   );
 }
 
@@ -102,4 +141,4 @@ function NavBar({paths, activeIndex}: NavBarProps): JSX.Element {
   );
 }
 
-export { RedirectButtonNavBar, RedirectButton, HomeButton, IconButton, NavBar };
+export { MenuButton, ExitMenuButton, RedirectButtonNavBar, RedirectButton, HomeButton, IconButton, NavBar };

@@ -5,6 +5,7 @@ import About from "./pages/about/About";
 import Body from "./pages/about/Body";
 import Resume from "./pages/about/Resume";
 import Photos from "./pages/photos/Photos";
+// import Posts from "./pages/posts/Posts";
 
 interface Route {
     navBarText: string;

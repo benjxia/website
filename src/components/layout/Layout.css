@@ -10,6 +10,49 @@ Puts all page content in the center of the screen
   align-items: center;
 }
 
+.top-navbar .menu-button {
+  display: none;
+  @media(max-width: 500px) {
+    display: flex;
+  }
+  margin-top: min(5vw, 36px);
+}
+
+.fullscreen-menu-container {
+  position:fixed;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  padding:0;
+  margin:0;
+
+  top:0;
+  left:0;
+
+  width: 100%;
+  min-height: 100dvh;
+
+  z-index: 999;
+}
+
+.top-navbar .top-navbar-buttons{
+  display: flex;
+  @media(max-width: 500px) {
+    display: none;
+  }
+}
+
+.fullscreen-nav-menu-button-container {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+
 .layout-div {
   width: 80%;
   height: 100%;

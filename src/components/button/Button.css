@@ -3,6 +3,8 @@
   display: block;
   position: relative;
 
+  width: fit-content;
+
   overflow: hidden;
   background-color: transparent;
   border: none;

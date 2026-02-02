@@ -56,8 +56,8 @@ const items = [
   {
     src: 'https://collection.benjxia.dev/photos/gull.png',
     type: EntryType.PHOTO,
-  }
-]
+  },
+];
 
 function Photos(): JSX.Element {
   return (
@@ -65,12 +65,12 @@ function Photos(): JSX.Element {
       <div className="transition">
         <div className="body-wrapper blur-tile">
           <DefaultBody>
-            I usually take pretty bad photos. But I sometimes get a little lucky and they
-            actually turn out somewhat usable.
+            I usually take pretty bad photos. But I sometimes get a little lucky
+            and they actually turn out somewhat usable.
           </DefaultBody>
         </div>
       </div>
-      <Album items={items}/>
+      <Album items={items} />
     </Layout>
   );
 }
