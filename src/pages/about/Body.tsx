@@ -1,5 +1,5 @@
 import React, { JSX } from 'react';
-import { DefaultBody } from '../../components/text/Text';
+import { MarkdownText } from '../../components/text/Text';
 
 import './About.css';
 import '../../theme/transition.css';
@@ -11,7 +11,7 @@ function Body(): JSX.Element {
   return (
     <div className="transition">
       <div className="about-body-text transition blur-tile">
-        <DefaultBody>
+        <MarkdownText>
           I graduated from Westview High School in 2021, and from UC San Diego
           with a Bachelor&apos;s in Computer Science in 2024, and a
           Master&apos;s in Computer Science in 2025. My main focuses have
@@ -22,15 +22,15 @@ function Body(): JSX.Element {
           done a bit of frontend work when necessary, but it absolutely is not
           my forte, as evident by this website&apos;s simple, crappy design,
           and general lack of code quality.
-        </DefaultBody>
-        <DefaultBody>
+        </MarkdownText>
+        <MarkdownText>
           I&apos;ve had a few brief stints in competitive Overwatch during high school,
           and mainly played tank heroes for a few teams including UC San Diego&apos;s
           2021-2022 varsity team/UCSD Gold and also placed Top 500 on the North American
           leaderboard a few times. In my free time I sometimes still play some shooter games, chess, gym,
           care for my pet budgies, and of course, farm chickens (for eggs).
-        </DefaultBody>
-        <DefaultBody>
+        </MarkdownText>
+        <MarkdownText>
           After some layoffs and rescinded offers, I&apos;ve decided to use my
           savings to start my own chicken farm near Auckland, New Zealand, as
           the human body simply isn&apos;t built to sit in front of a computer
@@ -38,7 +38,7 @@ function Body(): JSX.Element {
           contact me for some affordable, ethically sourced, organic chicken
           eggs :). We&apos;ve also recently expanded our operations under a new
           banner: Eggs4Less!
-        </DefaultBody>
+        </MarkdownText>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <img
             src={chicken}

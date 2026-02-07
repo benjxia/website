@@ -2,12 +2,45 @@ import React, { JSX, ReactNode, useEffect, useState } from 'react';
 import './Text.css';
 import useThemeColors from '../../hooks/theme';
 
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
+
 interface TextProps {
   children: ReactNode;
   style?: React.CSSProperties;
   noSelect?: boolean;
   fontSize?: string;
   transition?: boolean;
+}
+
+function MarkdownText({
+  children,
+  style = {},
+  noSelect = false,
+  fontSize = '16px',
+  transition = false,
+}: TextProps): JSX.Element {
+  return (
+    <div
+      className={transition ? 'text transition' : 'text'}
+      style={{
+        ...(noSelect && { pointerEvents: 'none', userSelect: 'none' }),
+        ...{fontSize: fontSize},
+        ...style,
+      }}
+    >
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm, remarkMath]}
+        rehypePlugins={[rehypeHighlight, rehypeKatex]}
+      >
+        {children?.toString()}
+      </ReactMarkdown>
+    </div>
+  );
 }
 
 function DefaultText({
@@ -19,7 +52,7 @@ function DefaultText({
   useThemeColors();
   return (
     <p
-      className={transition ? "text transition" : "text"}
+      className={transition ? 'text transition' : 'text'}
       style={{
         ...(noSelect && { pointerEvents: 'none', userSelect: 'none' }),
         ...style,
@@ -163,4 +196,11 @@ function CycleTypingText({
   );
 }
 
-export { DefaultTitle, DefaultBody, TypingText, CycleTypingText, DefaultText };
+export {
+  DefaultTitle,
+  DefaultBody,
+  TypingText,
+  CycleTypingText,
+  DefaultText,
+  MarkdownText,
+};
