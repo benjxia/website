@@ -7,7 +7,6 @@ import '../../theme/transition.css';
 import chicken from './img/chicken.jpg';
 
 function Body(): JSX.Element {
-
   return (
     <div className="transition">
       <div className="about-body-text transition blur-tile">
@@ -15,29 +14,32 @@ function Body(): JSX.Element {
           I graduated from Westview High School in 2021, and from UC San Diego
           with a Bachelor&apos;s in Computer Science in 2024, and a
           Master&apos;s in Computer Science in 2025. My main focuses have
-          included a combination of classical and machine learning based computer vision,
-          realtime and offline 3d graphics, theoretical machine learning,
-          operating systems, high performance computing, GPU
+          included a combination of classical and machine learning based
+          computer vision, realtime and offline 3d graphics, theoretical machine
+          learning, operating systems, high performance computing, GPU
           programming, and a bit of distributed systems for fun. I&apos;ve also
           done a bit of frontend work when necessary, but it absolutely is not
-          my forte, as evident by this website&apos;s simple, crappy design,
-          and general lack of code quality.
+          my forte, as evident by this website&apos;s simple, crappy design, and
+          general lack of code quality.
         </MarkdownText>
         <MarkdownText>
-          I&apos;ve had a few brief stints in competitive Overwatch during high school,
-          and mainly played tank heroes for a few teams including UC San Diego&apos;s
-          2021-2022 varsity team/UCSD Gold and also placed Top 500 on the North American
-          leaderboard a few times. In my free time I sometimes still play some shooter games, chess, gym,
-          care for my pet budgies, and of course, farm chickens (for eggs).
+          I&apos;ve had a few brief stints in competitive Overwatch during high
+          school, and mainly played tank heroes for a few teams including UC San
+          Diego&apos;s 2021-2022 varsity team/UCSD Gold and also placed Top 500
+          on the North American leaderboard a few times. In my free time I
+          sometimes still play some shooter games, chess, gym, care for my pet
+          budgies, and of course, farm chickens (for eggs).
         </MarkdownText>
         <MarkdownText>
-          After some layoffs and rescinded offers, I&apos;ve decided to use my
-          savings to start my own chicken farm near Auckland, New Zealand, as
-          the human body simply isn&apos;t built to sit in front of a computer
-          all day. If you happen to be in the Auckland area, feel free to
-          contact me for some affordable, ethically sourced, organic chicken
-          eggs :). We&apos;ve also recently expanded our operations under a new
-          banner: Eggs4Less!
+          After some layoffs and rescinded offers, I&apos;ve finally realized
+          that the grind is futile and that no good work ever goes unpunished.
+          I&apos;ve decided to use my savings, and almost 20 years of experience
+          farming backyard chickens to start my own chicken farm near Auckland,
+          New Zealand, as the human body simply isn&apos;t built to sit in front
+          of a computer all day. If you happen to be in the Auckland area, feel
+          free to contact me for some affordable, ethically sourced, organic
+          chicken eggs :). We&apos;ve also recently expanded our operations
+          under a new banner: Eggs4Less!
         </MarkdownText>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <img
