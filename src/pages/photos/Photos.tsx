@@ -57,6 +57,14 @@ const items = [
     src: 'https://collection.benjxia.dev/photos/gull.png',
     type: EntryType.PHOTO,
   },
+  {
+    src: 'https://collection.benjxia.dev/photos/manhattan1.png',
+    type: EntryType.PHOTO,
+  },
+    {
+    src: 'https://collection.benjxia.dev/photos/big_bear1.png',
+    type: EntryType.PHOTO,
+  }
 ];
 
 function Photos(): JSX.Element {
